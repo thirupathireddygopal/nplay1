@@ -25,6 +25,7 @@ for (const item of mySet1) {
 // The Map object holds key-value pairs and remembers the original insertion order of the keys.
 let myMap1 = new Map();
 myMap1.set('a', 1);
+console.log(myMap1.get('a'));
 myMap1.set('b', 'thiru');
 myMap1.set('c', 'gopal');
 myMap1.set('d', [1, 2, 3]);
