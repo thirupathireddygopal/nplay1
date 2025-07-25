@@ -9,7 +9,7 @@ mySet1.add(5);
 mySet1.add('some text');
 mySet1.add([1, 2, 3]);
 mySet1.add({ a: 1, b: 2 });
-console.log(mySet1);
+console.log(mySet1); // Set(5) { 1, 5, 'some text', [ 1, 2, 3 ], { a: 1, b: 2 } }
 console.log(mySet1.has(1));
 console.log(mySet1.has(2));
 console.log(mySet1.has(Math.sqrt(25)));
@@ -30,7 +30,10 @@ myMap1.set('b', 'thiru');
 myMap1.set('c', 'gopal');
 myMap1.set('d', [1, 2, 3]);
 console.log(myMap1.has('a'));
-console.log(myMap1); // Map(4) { 'a' => 1, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
+myMap1.set('a', 9);
+console.log("myMap1:-----");
+console.log(myMap1); // Map(4) { 'a' => 9, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
+
 // using for-of 
 // iteratables only values >> i
 // iterate over objects key value pairs >> [key, value]
@@ -48,6 +51,7 @@ for (const key of myMap1.keys()) {
 for (const value of myMap1.values()) {
   console.log(`val: ${value}`);
 }
+
 // using forEach
 // the array forEach method executes the given function on every elements from an array
 myMap1.forEach((value, key) => {
@@ -365,5 +369,6 @@ console.log(Math.min.apply(null, numbers)); // 1
 
 // Power(x,y)= base x, power y
 console.log(Math.pow(3, 2));
+console.log("----------------------------------------------------")
 
 

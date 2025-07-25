@@ -47,9 +47,17 @@ function printAllCb() {
 // printAllCb()
 
 // Well, the code is a lot uglier now, but at least it works! Each time you call printAll, you get the same result.
-// The problem with callbacks is it creates something called “Callback Hell.” Basically, you start nesting functions within functions, and it starts to get really hard to read the code.
+// The problem with callbacks is it creates something called “Callback Hell.” 
+// cont. Basically, which means you start nesting functions within functions, and it starts to get really hard to read the code.
+// cont. and our code start to grow horizontally instead of vertically
+// cont. and the code becomes un-maintainable or un-readable
+// cont. and the structure is also know as "Pyramid of Doom"
 
-// so promises come into play to resolve this
+// Inversion of control: in 
+
+
+
+// >> so, >> promises come into play to resolve this
 // Promises try to fix this nesting problem. Let’s change our function to use Promises
 function printStringPr(string) {
   return new Promise((resolve, reject) => {
@@ -181,58 +189,3 @@ async function addAllAwait() {
 //                            \
 //                                rejected
 
-// async-await
-async function doWork1() {
-  // return a promise based response
-  return 'learning, understanding and typing...'
-}
-
-async function doWork2() {
-  // return a promise based response
-  throw new Error('something went wrong...')
-}
-
-function work1() {
-  doWork1().then(result => {
-    console.log('result: ', result)
-  }).catch(e => {
-    console.log('e', e);
-  })
-}
-// work1();
-
-function work2() {
-  doWork2().then(result => {
-    console.log('result: ', result)
-  }).catch(e => {
-    console.log('e', e);
-  })
-}
-// work2();
-
-const add_promise = (a, b) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (a < 0 || b < 0) {
-        // directly redirecting to out of function
-        return reject('please provide +ve integer')
-      }
-      resolve(a + b);
-    }, Math.floor(Math.random() * 100) + 1);
-  })
-}
-
-// always retruns promsie
-const addNums = async () => {
-  let sum1 = await add_promise(1, 2);
-  let sum2 = await add_promise(sum1, 3);
-  // let sum3 = await add(sum2, 2);
-  let sum3 = await add_promise(sum2, -2);
-  return sum3
-}
-
-addNums().then(result => {
-  console.log('add num result', result);
-}).catch(e => {
-  console.log('add number error', e)
-})
