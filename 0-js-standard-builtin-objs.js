@@ -1,7 +1,6 @@
 console.clear();
-// javascript built in objects
-// 1) Set 
-// The Set object lets you store unique values of any type, whether primitive values or object references.
+// javascript built in objects >> Set, Map, Array, Math
+// 1) Set: The Set object lets you store unique values of any type, whether primitive values or object references.
 const mySet1 = new Set();
 mySet1.add(1);
 mySet1.add(1);
@@ -10,50 +9,67 @@ mySet1.add('some text');
 mySet1.add([1, 2, 3]);
 mySet1.add({ a: 1, b: 2 });
 console.log(mySet1); // Set(5) { 1, 5, 'some text', [ 1, 2, 3 ], { a: 1, b: 2 } }
-console.log(mySet1.has(1));
-console.log(mySet1.has(2));
-console.log(mySet1.has(Math.sqrt(25)));
-console.log('checking string: ' + mySet1.has('Some Text'.toLowerCase()))
+console.log(mySet1.has(1)); // true
+console.log(mySet1.has(2)); // false
+console.log(mySet1.has(Math.sqrt(25))); // true
+console.log('checking string: ' + mySet1.has('Some Text'.toLowerCase())) // true
 
-mySet1.delete(1);
+mySet1.delete(1); // Set(4) { 5, 'some text', [ 1, 2, 3 ], { a: 1, b: 2 } }
 console.log(mySet1);
+// for loop to get set values
 for (const item of mySet1) {
-  console.log(item)
+  console.log(item) // logs >> 5, some text, [ 1, 2, 3 ], { a: 1, b: 2 }
 }
 
-// 2) Map
-// The Map object holds key-value pairs and remembers the original insertion order of the keys.
+// 2) Map: The Map object holds key-value pairs and remembers the original insertion order of the keys.
 let myMap1 = new Map();
 myMap1.set('a', 1);
-console.log(myMap1.get('a'));
 myMap1.set('b', 'thiru');
 myMap1.set('c', 'gopal');
 myMap1.set('d', [1, 2, 3]);
-console.log(myMap1.has('a'));
+console.log(myMap1.get('a')); // 1
+console.log(myMap1.has('a')); // true
 myMap1.set('a', 9);
 console.log("myMap1:-----");
 console.log(myMap1); // Map(4) { 'a' => 9, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
 
-// using for-of 
+// for-of use case:
 // iteratables only values >> i
-// iterate over objects key value pairs >> [key, value]
 const arrforof1 = ['a', 'b', 'c'];
 for (const element of arrforof1) {
   console.log(element);
 }
-
-for (const [key, value] of myMap1) {
-  console.log(`key: ${key}, val: ${value}`);
-}
 for (const key of myMap1.keys()) {
   console.log(`key: ${key}`);
 }
+/** prints
+    key: a
+    key: b
+    key: c
+    key: d
+ */
 for (const value of myMap1.values()) {
   console.log(`val: ${value}`);
 }
+/** prints
+    val: thiru
+    val: gopal
+    val: 1,2,3
+ */
 
-// using forEach
-// the array forEach method executes the given function on every elements from an array
+// iterate over objects key value pairs >> [key, value]
+for (const [key, value] of myMap1) {
+  console.log(`key: ${key}, val: ${value}`);
+}
+/** prints
+    key: a, val: 9
+    key: b, val: thiru
+    key: c, val: gopal
+    key: d, val: 1,2,3
+ */
+
+
+// forEach use case: forEach method executes the given function on every elements from an array
 myMap1.forEach((value, key) => {
   console.log(`key: ${key}, val: ${value}`);
 });
@@ -96,9 +112,8 @@ console.log(Array.of(undefined)); // [undefined]
 const clothing = ['shoes', 'shirts', 'socks', 'sweaters'];
 console.log(clothing.length);
 
-// Array Instance Methods
-// .filter()
-// The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+// Array Instance Methods: .filter(), .map(), .forEach(), .reduce(), .join(), .concat(), .includes()
+// .filter(): The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 // ex1
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 const result = words.filter(word => word.length > 6);
@@ -119,16 +134,15 @@ console.log('fres1: ' + fres1);
 //ex3
 const arr_filter3 = [
   { name: 'thiru', age: 16 },
-  { name: 'gopal', age: 18 },
-  { name: 'abhi', age: 24 },
+  { name: 'kavya', age: 18 },
+  { name: 'ravi', age: 24 },
   { name: 'praveen', age: 2 }
 ];
 const voteAge = arr_filter3.filter(item => item.age >= 18);
-console.log(voteAge);
+console.log(voteAge); // [ { name: 'kavya', age: 18 }, { name: 'ravi', age: 24 } ]
 
 
-// .map()
-// The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+// .map(): The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
 //ex1
 const arr_map = [1, 4, 9, 16];
 const m1 = arr_map.map(x => x * 2); // pass a function to map
@@ -146,9 +160,7 @@ const m3 = arr_map2.map(item => {
 });
 console.log('m3res: ' + m3); // [ 1, 2, 3 ]
 
-
-// .forEach()
-// the array forEach method executes the given function on every elements from an array
+// .forEach(): forEach method executes the given function on every elements from an array
 const numbersForEach = [1, 3, 5, 7, 9];
 let sum = 0;
 numbersForEach.forEach((item, index, arr) => {
@@ -157,6 +169,13 @@ numbersForEach.forEach((item, index, arr) => {
   console.log(`item: ${item} , index: ${index}`);
 });
 console.log(sum);
+/** prints
+    item: 1 , index: 0
+    item: 3 , index: 1
+    item: 5 , index: 2
+    item: 7 , index: 3
+    item: 9 , index: 4
+ */
 
 // use case: { a: 3, b: 1, c: 2 }, 
 // using forEach, we can build a new obj from the given array of numbers or letters or objects..,etc
@@ -188,46 +207,44 @@ const reduce_total = arr_red.reduce((currentTotal, item) => {
   console.log('currentTotal: ' + currentTotal);
   return currentTotal + item.age;
 }, 5); // here 5 is the intial value which we are providing for the currentTotal
-console.log('reduce_total: ' + reduce_total);
+console.log('reduce_total: ' + reduce_total); // 15
 
 // .join()
 const arr_join = ['Fire', 'Air', 'Water'];
-console.log(arr_join.join()); // expected output: "Fire,Air,Water"
-console.log(arr_join.join('')); // expected output: "FireAirWater"
-console.log(arr_join.join('-')); // expected output: "Fire-Air-Water"
+console.log(arr_join.join()); // "Fire,Air,Water"
+console.log(arr_join.join('')); // "FireAirWater"
+console.log(arr_join.join('-')); // "Fire-Air-Water"
 
 // .concat()
 const array_1 = ['a', 'b', 'c'];
 const array_2 = ['d', 'e', 'f'];
 const array_3 = array_1.concat(array_2);
-console.log(array_3);
+console.log(array_3); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
 
 // .includes()
 // The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
 const pets = ['cat', 'dog', 'bat'];
-console.log(pets.includes('cat')); // expected output: true
-console.log(pets.includes('at')); // expected output: false
+console.log(pets.includes('cat')); // true
+console.log(pets.includes('at')); // false
 
 
-const animals = ['lion', 'cheetah', 'tiger', 'giraffe', 'elephant'];
-console.log(animals.pop()); // .pop()
-animals.push('cows'); // .push()
-console.log(animals);
+const animals = ['lion', 'cheetah', 'giraffe', 'elephant'];
+animals.pop();
+animals.push('cows');
+
 // Extracts a section of the calling array and returns a new array.
-console.log(animals.slice(2, 3));
-// The default sort order is ascending order
-console.log(animals.sort());
-console.log(animals);
-console.log(animals.splice(2, 0, 'deer', 'kangaro'));
-console.log(animals);
-// Removes the first element from an array and returns that element.
-console.log('shift: ' + animals.shift());
+console.log(animals.slice(2, 3)); // [ 'giraffe' ]
+console.log(animals.sort()); // default: Ascending order: [ 'cheetah', 'cows', 'giraffe', 'lion' ]
+animals.splice(2, 0, 'deer', 'kangaro');
+console.log(animals); // [ 'cheetah', 'cows', 'deer', 'kangaro', 'giraffe', 'lion' ]
+
+console.log(animals.shift()); //cheetah, Removes the first element from an array and returns that element.
 console.log(animals.unshift('bear', 'rabbit')); // Adds elements at the beginning of the array.
-console.log(animals);
 const rev_animals = animals.reverse();
 console.log(rev_animals);
-// .indexOf()
-// The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+// .indexOf(): The indexOf() method returns the first index at which a given element can be found in the array, 
+// cont. or -1 if it is not present.
 console.log(animals.indexOf('tiger')); // expected output: 1
 
 // Remove duplicate element from array 
@@ -275,50 +292,44 @@ console.log(b4Arr); // [ 1, 3, 5, 2, 4 ]
 // in a shortest way
 console.log([... new Set(a4Arr)]);
 
-
-
-// at
-const array1 = [5, 12, 8, 130, 44];
-// console.log(array1.at(3)); not working
-
 // Array methods: every(), some(), find(), and findIndex() test the array elements with a predicate returning a truthy value to determine if further iteration is required.
 
 // .find() >>  gives item when item is validated
-// The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+// The find() method returns the first element in the provided array that satisfies the provided testing function.
+// cont. If no values satisfy the testing function, undefined is returned.
 const array_find = [5, 12, 8, 130, 44];
 const found = array_find.find(element => element > 10);
-console.log(found);
-// expected output: 12
+console.log(found); // 12
 
 // .findIndex() >>  gives index of item validated
 const array_find_in = [5, 12, 8, 130, 44];
-const isLargeNumber = (element) => element > 13;
-console.log(array_find_in.findIndex(isLargeNumber));
-// expected output: 3
+const isLargeNumber = (element) => element > 13; // returns boolean true or false
+console.log(array_find_in.findIndex(isLargeNumber)); // 3
+
 
 // .every() >> check weather condition is true
 const array_ev = [1, 30, 39, 29, 10, 13];
 const isBelowThreshold = (currentValue) => currentValue < 40;
 console.log(array_ev.every(isBelowThreshold)); // expected output: true
 
-// not so important
+// not so important =======
 // .fill()
-const array_fill = [1, 2, 3, 4];
-// fill with 0 from position 2 until position 4
-console.log(array1.fill(0, 2, 4)); // expected output: [1, 2, 0, 0]
-// fill with 5 from position 1
-console.log(array1.fill(5, 1));
-// expected output: [1, 5, 5, 5]
-console.log(array1.fill(6));
-// expected output: [6, 6, 6, 6]
+// const array_fill = [1, 2, 3, 4];
+// // fill with 0 from position 2 until position 4
+// console.log(array1.fill(0, 2, 4)); // expected output: [1, 2, 0, 0]
+// // fill with 5 from position 1
+// console.log(array1.fill(5, 1));
+// // expected output: [1, 5, 5, 5]
+// console.log(array1.fill(6));
+// // expected output: [6, 6, 6, 6]
 
-// .copyWithin()
-const arraycp1 = ['a', 'b', 'c', 'd', 'e'];
-console.log(arraycp1.copyWithin(0, 3, 4)); // copy to index 0 the element at index 3
-// expected output: Array ["d", "b", "c", "d", "e"]
-console.log(arraycp1.copyWithin(1, 3)); // copy to index 1 all elements from index 3 to the end
-// expected output: Array ["d", "d", "e", "d", "e"]
-
+// // .copyWithin()
+// const arraycp1 = ['a', 'b', 'c', 'd', 'e'];
+// console.log(arraycp1.copyWithin(0, 3, 4)); // copy to index 0 the element at index 3
+// // expected output: Array ["d", "b", "c", "d", "e"]
+// console.log(arraycp1.copyWithin(1, 3)); // copy to index 1 all elements from index 3 to the end
+// // expected output: Array ["d", "d", "e", "d", "e"]
+// ============================
 
 // 4) Math =================================================
 // pi value
@@ -360,15 +371,15 @@ console.log(Math.round(-5.5)) // -5
 console.log(Math.round(-5.6)) // -6
 
 // largest and smallest number
-console.log(`Math.max(1,2,3): ${Math.max(1, 2, 3)}`);
-console.log(`Math.min(1,2,3): ${Math.min(1, 2, 3)}`);
+console.log(Math.max(1, 2, 3)); // 3
+console.log(Math.min(1, 2, 3)); // 1
 // we can also find the maximum or minimum value within an array or an array-like object using the apply() method
 var numbers = [1, 2, 3];
 console.log(Math.max.apply(null, numbers)); // 3
 console.log(Math.min.apply(null, numbers)); // 1
 
 // Power(x,y)= base x, power y
-console.log(Math.pow(3, 2));
+console.log(Math.pow(3, 2)); // 9
 console.log("----------------------------------------------------")
 
 
