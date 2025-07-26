@@ -4,16 +4,14 @@ const obj = {
   ln: 'gopal',
   age: 28
 }
-console.log(obj);
-console.log(obj.age);
-
+console.log(obj); // { fn: 'thiru', ln: 'gopal', age: 28 }
 
 let str = JSON.stringify(obj);
-console.log(str);
+console.log(str); // {"fn":"thiru","ln":"gopal","age":28}
 console.log(str.fn); // undefined
 
 const obj1 = JSON.parse(str);
-console.log(obj1.age);
+console.log(obj1.age); // 28
 
 // book data stored as a javascript object
 const book = {
@@ -39,7 +37,7 @@ console.log(`title: ${parsedData.title}`);
 // reading json data from json file
 const dataBuffer = fs.readFileSync('book.json');
 
-console.log(dataBuffer); 
+console.log(dataBuffer);
 //<Buffer 7b 0d 0a 20 20 22 74 69 74 6c 65 22 3a 20 22 6d 79 20 62 6f 6f 6b 31 22 2c 0d 0a 20 20 22 61 75 74 68 6f 72 22 3a 20 22 62 6f 6f 6b 31 20 61 75 74 68 ... 6 more bytes>
 // nothing but a byte data
 
@@ -53,5 +51,5 @@ var json2Obj = {
 };
 const json2strgfy = JSON.stringify(json2Obj);
 console.log(`json2strfy: ${json2strgfy}`);
-fs.writeFileSync('2-json.json', json2strgfy);
+fs.writeFileSync('2-json.json', json2strgfy); // {"name":"thiru","age":29}
 

@@ -15,11 +15,12 @@ const child = {
   mul() {
     return this.arg1 * this.arg2;
   },
-  firstDigit(num) {
+  firstDigit(num) { // 3456 >> 4-1 = 3
     let length = ('' + num).length;
     // console.log('length: ' + length);
     // console.log('first divnum: ' + num / Math.pow(10, length - 1));
-    let first_digit = parseInt(num / Math.pow(10, length - 1));
+    let first_digit = Math.floor(num / Math.pow(10, length - 1));
+    // let first_digit = parseInt(num / Math.pow(10, length - 1)); // use when number is in string type
     return first_digit;
   },
   lastDigit(num) {
@@ -27,10 +28,10 @@ const child = {
     console.log(last_digit);
     return last_digit;
   },
-  last_nth_digit(num, n) {
-    let lastnum = parseInt(num / Math.pow(10, n - 1));
+  last_nth_digit(num, n) { // 3456, 2
+    let lastnum = Math.floor(num / Math.pow(10, n - 1)); // trims digits upto digits we need which is included
     console.log(`last digit number: ${lastnum}`);
-    let nthDigit = lastnum % 10;
+    let nthDigit = lastnum % 10; // get the required digit
     console.log(`nth digit: ${nthDigit}`);
     return nthDigit;
   },
@@ -60,11 +61,11 @@ const child = {
     let sum = 0;
     while (num > 0) {
       sum = sum + num % 10;
-      num = parseInt(num / 10);
+      num = Math.floor(num / 10);
     }
     return sum;
   },
-  isPalindromeNum_reverse(num) {
+  isPalindromeNum_reverse(num) { // 35453
     let length = ('' + num).length;
     let first_digit = parseInt(num / Math.pow(10, length - 1));
     let last_digit = num % 10;
@@ -81,15 +82,15 @@ const child = {
         let rem = num % 10;
         reverseNum = (reverseNum * 10) + rem;
         console.log(`reverse num: ${reverseNum}`);
-        num = parseInt(num / 10);
+        num = Math.floor(num / 10);
       }
       if (intialNum == reverseNum) {
-        return 'Its a palindrome';
+        return 'It is a palindrome';
       }
       return 'Not a palindrome';
     }
   },
-  printFactorial(num) {
+  printFactorial(num) { // 5
     let str = '';
     let result = 1;
     while (num > 0) {
@@ -99,7 +100,23 @@ const child = {
     }
     return [str, result];
   },
-  isPrime(num) {
+  /**
+  | Input | `num / 2` Checks | `Math.sqrt(num)` Checks |
+  | ----- | ---------------- | ----------------------- |
+  | 101   | \~49 checks      | \~10 checks             |
+  | 1009  | \~504 checks     | \~32 checks             |
+  | 99991 | \~49995 checks   | \~316 checks - 316.21353544717215           |
+  */
+  isPrime(n) { // more optimized and concise solution 
+    if (n <= 1) return false; // 0 and 1 are not prime
+    if (n === 2) return true; // 2 is prime
+    if (n % 2 === 0) return false; // eliminate even numbers
+    for (let i = 3; i <= Math.floor(Math.sqrt(n)); i += 2) {
+      if (n % i === 0) return false;
+    }
+    return true;
+  },
+  isPrime2(num) { // less optimized
     let halfNum = parseInt(num / 2);
     console.log(halfNum);
     for (let i = 2; i <= halfNum; i++) {
@@ -563,7 +580,10 @@ console.log('isStringPalindrome: ' + child.isStringPalindrome('farmer'));
 console.log('printTable: ' + child.printTable(3));
 console.log('printMulTable: ' + child.printMulTables(3, 4));
 console.log('factorial: ' + child.printFactorial(5));
-console.log('Is a primeNumber: ' + child.isPrime(13));
+console.log('Is a primeNumber: ' + child.isPrime2(13));
+console.log(child.isPrime(7));  // true
+console.log(child.isPrime(10)); // false
+console.log(child.isPrime(2));  // true
 console.log('Next primeNumber: ' + child.nextPrime(13));
 console.log(child.starPattern1(5));
 console.log(child.starPattern2(5));

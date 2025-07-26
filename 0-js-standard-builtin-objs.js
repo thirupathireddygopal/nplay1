@@ -12,6 +12,7 @@ console.log(mySet1); // Set(5) { 1, 5, 'some text', [ 1, 2, 3 ], { a: 1, b: 2 } 
 console.log(mySet1.has(1)); // true
 console.log(mySet1.has(2)); // false
 console.log(mySet1.has(Math.sqrt(25))); // true
+console.log(mySet1.size); // 5
 console.log('checking string: ' + mySet1.has('Some Text'.toLowerCase())) // true
 
 mySet1.delete(1); // Set(4) { 5, 'some text', [ 1, 2, 3 ], { a: 1, b: 2 } }
@@ -29,6 +30,7 @@ myMap1.set('c', 'gopal');
 myMap1.set('d', [1, 2, 3]);
 console.log(myMap1.get('a')); // 1
 console.log(myMap1.has('a')); // true
+console.log(myMap1.size); // 4
 myMap1.set('a', 9);
 console.log("myMap1:-----");
 console.log(myMap1); // Map(4) { 'a' => 9, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
