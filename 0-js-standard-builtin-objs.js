@@ -33,8 +33,9 @@ myMap1.set('a', 9);
 console.log("myMap1:-----");
 console.log(myMap1); // Map(4) { 'a' => 9, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
 
-// for-of use case:
-// iteratables only values >> i
+// for-of use case: >> loop over iterable / values
+// generally for-of is used for arrays of iterable
+// for-of does not work with objects because they are not iterable
 const arrforof1 = ['a', 'b', 'c'];
 for (const element of arrforof1) {
   console.log(element);
@@ -68,6 +69,17 @@ for (const [key, value] of myMap1) {
     key: d, val: 1,2,3
  */
 
+// for-in: majorly used for objects properties & arrays using indexes
+// 1) for object properties , ex: obj[key], res[roleId]
+var objkv = { a: 1, b: 2, c: 3 };
+for (const key in objkv) {
+  console.log(`key: ${key}, value: ${objkv[key]}`);
+}
+// 2) for array using indexes >> 0,1,2 ...
+const numbersForIn = [1, 3, 5, 7, 9];
+for (const index in numbersForIn) {
+  console.log(numbersForIn[index]);
+}
 
 // forEach use case: forEach method executes the given function on every elements from an array
 myMap1.forEach((value, key) => {
@@ -77,7 +89,7 @@ myMap1.forEach((value, key) => {
 
 // 3) Array ============================================
 
-// array static methods >> .from(), .isArray(), .of()
+// array static methods
 // Creates a new Array instance from an array-like object or iterable object.
 // >> array from a string
 const arr1 = Array.from('thiru');
