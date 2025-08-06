@@ -12,7 +12,7 @@ let cal_normal = function (num1, num2, calType) {
 console.log(cal_normal(2, 3, 'add'));
 console.log(cal_normal(2, 3, 'multiply'));
 
-// now what we are doing using callbacks is we are defining functions out the main functions like we are making it as abstract functions
+// now what we are doing is by using callbacks, we are defining function outside the main function like we are making it as abstract function
 let x = function () {
   console.log(`I am called from inside a function`);
 }
@@ -42,7 +42,8 @@ let calc_callback = function (num1, num2, callback) {
     return callback(num1, num2);
   }
 }
-console.log(calc_callback(2, 3, multiply)); // here we have defined the cb function name multiply
+console.log('add callback fun: ', calc_callback(2, 3, add)); // here we have defined the cb function name add
+console.log('mul callback fun: ', calc_callback(2, 3, multiply)); // given cb function name multiply
 console.log(calc_callback(2, 3, doWhatever)); // here we have defined the cb function name doWhatever
 
 // here we do not defined the cb function name and we call it as anonymous function
