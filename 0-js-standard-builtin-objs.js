@@ -394,6 +394,12 @@ console.log(Math.min.apply(null, numbers)); // 1
 
 // Power(x,y)= base x, power y
 console.log(Math.pow(3, 2)); // 9
+
+const date1 = Date.now().valueOf();
+console.log(`new date: ${date1}`);
+
+const date2 = new Date(Date.UTC(2021, 4, 10, 11, 25, 35));
+console.log(date2.getTime()/1000);
 console.log("----------------------------------------------------")
 
 
