@@ -11,7 +11,7 @@ console.log(fruit5); // undefined
 console.log(fruit6); // undefined
 
 
-// 2)Assigning values to declared variables via destrcucting
+// 2) Assigning values to declared variables via destrcucting
 let a, b, rest; // declaring variables
 [a, b] = [1, 2, 3, 4, 5, 6, 7];
 console.log(a);

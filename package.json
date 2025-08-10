@@ -4,7 +4,8 @@
   "description": "playground",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 5.1-eventEmitter-usecases.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +15,13 @@
     "express": "^4.17.1",
     "mongoose": "^5.11.14",
     "request": "^2.88.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thirupathireddygopal/nplay1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thirupathireddygopal/nplay1/issues"
+  },
+  "homepage": "https://github.com/thirupathireddygopal/nplay1#readme"
 }

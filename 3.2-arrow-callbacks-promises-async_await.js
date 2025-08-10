@@ -85,11 +85,12 @@ const printAllAwait = async () => {
 // printAllAwait();
 
 // ==============================
-
-// BUT WAIT THERE'S MORE
-// The printString function doesn’t return anything and is independent, all we cared about was the order. But what if you wanted to take the output of the first function, do something with it in the second function, and then pass it to the third function?
-// Instead of printing the string each time, let’s make a function that will concatenate the string and pass it on.
-
+/** BUT WAIT THERE'S MORE >> concatenate strings and return back
+    The printString function doesn’t return anything and is independent, 
+    all we cared about was the order. But what if you wanted to take the output of the first function,
+    do something with it in the second function, and then pass it to the third function?
+    Instead of printing the string each time, let’s make a function that will concatenate the string and pass it on.
+*/
 // Here it is in callback style:
 const addStringCb = (previous, current, callback) => {
   setTimeout(() => {
@@ -117,7 +118,6 @@ const addStringPr = (str1, str2) => {
     }, Math.floor(Math.random() * 100) + 1);
   })
 }
-
 const addAllPr = () => {
   addStringPr('', 'prom add-A ').then(
     result => addStringPr(result, 'prom add-B ').then(
@@ -141,10 +141,3 @@ const addAllAwait = async () => {
 addAllAwait();
 
 
-//promise vocabulary
-//
-//                                fullfiled
-//                            /
-// promise       --> pending
-//                            \
-//                                rejected

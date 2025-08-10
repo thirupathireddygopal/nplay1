@@ -1,5 +1,7 @@
-// without callbacks
-// using normal functions and here we can call this cal_normal as a libaray which it provides some results
+/** Normal function with calType(methodName)
+    without callbacks we will use normal functions and send the type of method that needs to execute
+    cont. here we can call this cal_normal as a libaray which it provides some results
+*/
 let cal_normal = function (num1, num2, calType) {
   // here call type is a string argument
   if (calType == 'add') {
@@ -12,7 +14,10 @@ let cal_normal = function (num1, num2, calType) {
 console.log(cal_normal(2, 3, 'add'));
 console.log(cal_normal(2, 3, 'multiply'));
 
-// now what we are doing is by using callbacks, we are defining function outside the main function like we are making it as abstract function
+/** now what we are doing is by using callbacks, we are defining function outside the main function,
+    cont. like we are making it as abstract function
+*/
+// 1st example:
 let abstractFun = function () {
   console.log(`I am called from call function`);
 }
@@ -23,18 +28,16 @@ let call = function (callback) {
 }
 call(abstractFun);
 
+// 2nd Example:
 let add = function (a, b) {
   return a + b;
 }
-
 let multiply = function (a, b) {
   return a * b;
 }
-
 let doWhatever = function (a, b) {
   return `here are your numbers ${a}, ${b}`;
 }
-
 let main = function (num1, num2, callback) {
   console.log(`entered into main fun..`);
   // this will check weather passed function is correct or not, 
@@ -47,8 +50,11 @@ console.log('add callback fun: ', main(2, 3, add)); // here we have defined the 
 console.log('mul callback fun: ', main(2, 3, multiply)); // given cb function name multiply
 console.log(main(2, 3, doWhatever)); // here we have defined the cb function name doWhatever
 
-// here we do not defined the cb function name and we call it as anonymous function
-// when we want to use something only once we do not want to define the function then we go for anonymous function
+/** Anonymous function only once
+    here we do not defined the cb function name and we call it as anonymous function
+    when we want to use something only once we do not want to define the function,
+    then we go for anonymous function
+ */
 console.log(main(2, 3, function (a, b) {
   return a - b;
 }));
