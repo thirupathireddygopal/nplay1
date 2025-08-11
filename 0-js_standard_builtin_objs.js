@@ -90,7 +90,7 @@ myMap1.forEach((value, key) => {
 });
 
 
-// 3) Array ============================================
+// 3) Array =================
 
 // array static methods
 // Creates a new Array instance from an array-like object or iterable object.
@@ -128,7 +128,7 @@ const clothing = ['shoes', 'shirts', 'socks', 'sweaters'];
 console.log(clothing.length);
 
 // Array Instance Methods: .filter(), .map(), .forEach(), .reduce(), .join(), .concat(), .includes()
-// .filter(): The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+// .filter(): The filter() method creates a new array with all elements that pass the test implemented by the function.
 // ex1
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 const result = words.filter(word => word.length > 6);
@@ -156,10 +156,12 @@ const arr_filter3 = [
 const voteAge = arr_filter3.filter(item => item.age >= 18);
 console.log(voteAge); // [ { name: 'kavya', age: 18 }, { name: 'ravi', age: 24 } ]
 
-
-// .map(): The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
-//ex1
-const arr_map = [1, 4, 9, 16];
+/** .map(): The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+    [1, 2, 3, 4] >> [ 2, 4, 6, 8 ] >> item*2
+    ['1', '2', '3'] >> [ 1, 2, 3 ] >> parseInt(item)
+    ['a', 'b', 'c'] >> [ 97, 98, 99 ] >> str.charCodeAt("a")
+*/
+const arr_map = [1, 2, 3, 4];
 const m1 = arr_map.map(x => x * 2); // pass a function to map
 console.log(m1); // [2, 8, 18, 32]
 
@@ -168,12 +170,11 @@ const m2 = arr_map2.map(item => parseInt(item));
 console.log(m2); // [ 1, 2, 3 ]
 
 const arr_letters = ['a', 'b', 'c'];
-
-const m3 = arr_map2.map(item => {
-  let str = '' + item;
+const m3 = arr_letters.map(item => {
+  let str = '' + item; // convert to string type
   return str.charCodeAt(0)
 });
-console.log('m3res: ' + m3); // [ 1, 2, 3 ]
+console.log(m3); //[ 97, 98, 99 ]
 
 // .forEach(): forEach method executes the given function on every elements from an array
 const numbersForEach = [1, 3, 5, 7, 9];
@@ -193,9 +194,8 @@ console.log(sum);
  */
 
 // use case: { a: 3, b: 1, c: 2 }, 
-// using forEach, we can build a new obj from the given array of numbers or letters or objects..,etc
 const lettersForeach = ['a', 'b', 'a', 'c', 'a', 'c'];
-let count = {};
+let count = {}; // using forEach, we can build a new obj from the given array of numbers or letters or objects..,etc
 lettersForeach.forEach(item => {
   // if we have property inside the object then we are increatmenting value by 1
   if (count[item]) {
@@ -205,8 +205,8 @@ lettersForeach.forEach(item => {
   else {
     // console.log('count[item]: ' + count[item]); // undefined
     count[item] = 1; // we are initialising item by value 1
-    console.log(item);
-    console.log('count[item]: ' + count[item])
+    // console.log(item);
+    // console.log('count[item]: ' + count[item]);
   }
 });
 console.log(count);
@@ -292,11 +292,11 @@ for (let i = 0; i <= a1Arr.length; i++) {
 }
 console.log('b1Arr: ' + b1Arr); //b1Arr: 1,3,5,2,4,
 
-// 2) using for, sort and temp variable
-let a2Arr = [1, 3, 5, 2, 4, 3, 5];
+// 2) using SORT, TEMP and FOR loop
+let a2Arr = [1, 3, 5, 3, 2, 4, 3, 5];
 let b2Arr = [];
 let temp;
-a2Arr.sort();
+// a2Arr.sort();
 for (let i = 0; i < a2Arr.length; i++) {
   if (a2Arr[i] !== temp) {
     b2Arr.push(a2Arr[i]);
@@ -319,15 +319,12 @@ console.log('b3Arr: ' + b3Arr) // b3Arr: 1,2,3,4,5
 
 //4) in one line using set >>  it takes unique values
 let a4Arr = [1, 3, 5, 2, 4, 3, 5];
-let bSet = new Set(a4Arr);
-console.log(bSet); // Set(5) { 1, 3, 5, 2, 4 }
+let bSet = new Set(a4Arr); // Set(5) { 1, 3, 5, 2, 4 }
 let b4Arr = Array.from(bSet); // [ 1, 3, 5, 2, 4 ]
-console.log(b4Arr); // [ 1, 3, 5, 2, 4 ]
 // in a shortest way
 console.log([... new Set(a4Arr)]);
 
 // Array methods: every(), some(), find(), and findIndex() test the array elements with a predicate returning a truthy value to determine if further iteration is required.
-
 // .find() >>  gives item when item is validated
 // The find() method returns the first element in the provided array that satisfies the provided testing function.
 // cont. If no values satisfy the testing function, undefined is returned.
@@ -340,11 +337,48 @@ const array_find_in = [5, 12, 8, 130, 44];
 const isLargeNumber = (element) => element > 13; // returns boolean true or false
 console.log(array_find_in.findIndex(isLargeNumber)); // 3
 
-
 // .every() >> check weather condition is true
 const array_ev = [1, 30, 39, 29, 10, 13];
 const isBelowThreshold = (currentValue) => currentValue < 40;
 console.log(array_ev.every(isBelowThreshold)); // expected output: true
+
+// 4) Math ======================
+// pi value
+console.log(`PI value: ${Math.PI}`);
+
+// abosolute value: conver -ve to +ve integers along with the same decimal digits
+console.log(Math.abs(1.3), Math.abs(1.6), Math.abs(0), Math.abs(-1.399), Math.abs(-1.6)); //1.3, 1.6, 0, 1.399, 1.6
+
+// Math.random() >> floating value from 0 to 1 excluding
+console.log(`Math.random(): ${Math.random()}`); // 0.18180901283416584 return a value b/w 0,1
+
+// Math.sqrt()
+console.log(Math.sqrt(16), Math.sqrt(-9)); // 4, NaN
+
+// rounding numbers
+// ceil: greater
+console.log(Math.ceil(5.3), Math.ceil(5.6), Math.ceil(-5.3), Math.ceil(-5.6)) // 6, 6, -5, -5
+
+// floor: lower
+console.log(Math.floor(5.3), Math.floor(5.6), Math.floor(-5.3), Math.floor(-5.6)) // 5, 5, -6, -6
+
+// round
+console.log(Math.round(5.5), Math.round(-5.3), Math.round(-5.5), Math.round(-5.6)) // 6, -5, -5, -6
+
+// largest and smallest number
+console.log(Math.max(1, 2, 3)); // 3
+console.log(Math.min(1, 2, 3)); // 1
+
+// Power(x,y)= base x, power y
+console.log(Math.pow(3, 2)); // 9
+
+const date1 = Date.now().valueOf();
+console.log(`new date: ${date1}`);
+
+const date2 = new Date(Date.UTC(2021, 4, 10, 11, 25, 35));
+console.log(date2.getTime() / 1000);
+console.log("----------------------------------------------------")
+
 
 // not so important =======
 // .fill()
@@ -363,63 +397,9 @@ console.log(array_ev.every(isBelowThreshold)); // expected output: true
 // // expected output: Array ["d", "b", "c", "d", "e"]
 // console.log(arraycp1.copyWithin(1, 3)); // copy to index 1 all elements from index 3 to the end
 // // expected output: Array ["d", "d", "e", "d", "e"]
-// ============================
 
-// 4) Math =================================================
-// pi value
-console.log(`PI value: ${Math.PI}`);
-
-// abosolute value
-console.log(Math.abs(1.3)); // 1.3
-console.log(Math.abs(1.6)); // 1/6
-console.log(Math.abs(0)); // 0
-console.log(Math.abs(-1.3)); // 1.3
-console.log(Math.abs(-1.6)); // 1.6
-
-// Math.random() >> floating value from 0 to 1 excluding
-console.log(`Math.random(): ${Math.random()}`); // 0.18180901283416584 return a value b/w 0,1
-
-// Math.sqrt()
-console.log('=======================');
-console.log(Math.sqrt(16)); // 4
-console.log(Math.sqrt(-9)); // NaN
-
-// rounding numbers
-// greater
-console.log(Math.ceil(5.3)) // 6
-console.log(Math.ceil(5.6)) // 6
-console.log(Math.ceil(-5.3)) // -5
-console.log(Math.ceil(-5.6)) // -5
-
-// lower
-console.log(Math.floor(5.3)) // 5
-console.log(Math.floor(5.6)) // 5
-console.log(Math.floor(-5.3)) // -6
-console.log(Math.floor(-5.6)) // -6
-
-// round
-console.log(Math.round(5.3)) // 5
-console.log(Math.round(5.5)) // 6
-console.log(Math.round(-5.3)) // -5
-console.log(Math.round(-5.5)) // -5
-console.log(Math.round(-5.6)) // -6
-
-// largest and smallest number
-console.log(Math.max(1, 2, 3)); // 3
-console.log(Math.min(1, 2, 3)); // 1
 // we can also find the maximum or minimum value within an array or an array-like object using the apply() method
-var numbers = [1, 2, 3];
-console.log(Math.max.apply(null, numbers)); // 3
-console.log(Math.min.apply(null, numbers)); // 1
-
-// Power(x,y)= base x, power y
-console.log(Math.pow(3, 2)); // 9
-
-const date1 = Date.now().valueOf();
-console.log(`new date: ${date1}`);
-
-const date2 = new Date(Date.UTC(2021, 4, 10, 11, 25, 35));
-console.log(date2.getTime()/1000);
-console.log("----------------------------------------------------")
-
-
+// var numbers = [1, 2, 3];
+// console.log(Math.max.apply(null, numbers)); // 3
+// console.log(Math.min.apply(null, numbers)); // 1
+// ============================
