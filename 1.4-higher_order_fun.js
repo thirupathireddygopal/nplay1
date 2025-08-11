@@ -18,7 +18,6 @@ let circlesAreas = function (arr) {
     }
     return circlesArea;
 }
-// console.log(circlesAreas(radiusArr));
 
 // calculate Circumference of circles
 let calCircumferenceOfCircles = function (arr) {
@@ -28,7 +27,6 @@ let calCircumferenceOfCircles = function (arr) {
     }
     return circlesCircumfernce;
 }
-// console.log(calCircumferenceOfCircles(radiusArr));
 
 // calculate Diameter of circles
 let calDiameterOfCircles = function (arr) {
@@ -38,7 +36,6 @@ let calDiameterOfCircles = function (arr) {
     }
     return circlesDiameters;
 }
-// console.log(calDiameterOfCircles(radiusArr));
 
 // still here we are using all 3 for loops
 let calculate = function (name, arr) {
