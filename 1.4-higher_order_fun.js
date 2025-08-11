@@ -9,16 +9,16 @@ function y(x) {
 }
 console.log(y(x));
 
-let circlesRadiusArr = [2, 3, 4, 5];
-// calculate Area of circles
-let calAreaOfCircles = function (arr) {
+let radiusArr = [2, 3, 4, 5];
+// Area of circles pi*r*r
+let circlesAreas = function (arr) {
     let circlesArea = [];
     for (let i = 0; i < arr.length; i++) {
         circlesArea.push(Math.PI * arr[i] * arr[i]);
     }
     return circlesArea;
 }
-// console.log(calAreaOfCircles(circlesRadiusArr));
+// console.log(circlesAreas(radiusArr));
 
 // calculate Circumference of circles
 let calCircumferenceOfCircles = function (arr) {
@@ -28,7 +28,7 @@ let calCircumferenceOfCircles = function (arr) {
     }
     return circlesCircumfernce;
 }
-// console.log(calCircumferenceOfCircles(circlesRadiusArr));
+// console.log(calCircumferenceOfCircles(radiusArr));
 
 // calculate Diameter of circles
 let calDiameterOfCircles = function (arr) {
@@ -38,24 +38,24 @@ let calDiameterOfCircles = function (arr) {
     }
     return circlesDiameters;
 }
-// console.log(calDiameterOfCircles(circlesRadiusArr));
+// console.log(calDiameterOfCircles(radiusArr));
 
 // still here we are using all 3 for loops
 let calculate = function (name, arr) {
     switch (name) {
-        case "calculateCircleArea":
+        case "calCircleArea":
             let circlesArea = [];
             for (let i = 0; i < arr.length; i++) {
                 circlesArea.push(Math.PI * arr[i] * arr[i]);
             }
             return circlesArea;
-        case "calculateCircleCircumference":
+        case "calCircleCircum":
             let circlesCircumfernce = [];
             for (let i = 0; i < arr.length; i++) {
                 circlesCircumfernce.push(2 * Math.PI * arr[i]);
             }
             return circlesCircumfernce;
-        case "calculateCircleDiameter":
+        case "calCircleDia":
             let circlesDiameters = [];
             for (let i = 0; i < arr.length; i++) {
                 circlesDiameters.push(2 * arr[i]);
@@ -65,13 +65,13 @@ let calculate = function (name, arr) {
             break;
     }
 }
-// console.log(calculate("calculateCircleArea", circlesRadiusArr));
-// console.log(calculate("calculateCircleCircumference", circlesRadiusArr));
-// console.log(calculate("calculateCircleDiameter", circlesRadiusArr));
+// console.log(calculate("calCircleArea", radiusArr));
+// console.log(calculate("calCircleCircum", radiusArr));
+// console.log(calculate("calCircleDia", radiusArr));
 
+console.log('========= Higher Order Functions ==============');
 // now let's see how we pass logic to the function i.e: functional programming
 // here we have abstracted this logic out from the code
-console.log('========= Higher Order Functions ==============');
 // 1st we will write all the methods by using Function Expression, 
 // cont. then we will call these methods as function arguments in the function 
 let area = function (radius) {
@@ -84,7 +84,6 @@ let diameter = function (radius) {
     return 2 * radius
 }
 
-let radiusArr = [2, 3, 4, 5]; // circles radius
 // here "cal_HOF_logic" function is a Higher Order Function
 // this is kind of a polyfill for map function
 let cal_HOF_logic = function (cbLogic, arr) { // here we are passing "cbLogic callback function" as an argument 
