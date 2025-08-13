@@ -21,9 +21,9 @@ emitter.on('data', () => {
   console.log('Listener 2 registered');
 });
 
-// console.log('Before emit');
-// emitter.emit('data');
-// console.log('After emit');
+console.log('Before emit');
+emitter.emit('data');
+console.log('After emit');
 console.log('=======================')
 // result : As you can see, both listeners are called synchronously, between Before emit and After emit.
 /**
@@ -33,7 +33,7 @@ console.log('=======================')
   After emit
 */
 
-// Can it be asynchronous? Yes, you can make it asynchronous by explicitly using setImmediate, setTimeout,
+// Can it be Asynchronous? Yes, you can make it Asynchronous by explicitly using setImmediate, setTimeout,
 // cont. process.nextTick, or async/await in the listener:
 emitter.on('event', async () => {
   await new Promise(resolve => setTimeout(resolve, 1000));

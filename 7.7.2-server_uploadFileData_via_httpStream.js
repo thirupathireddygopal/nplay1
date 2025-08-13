@@ -5,7 +5,7 @@ const fs = require('fs');
 
 http.createServer((req, res) => {
     if (req.method === 'POST') {
-        const writeStream = fs.createWriteStream('uploaded.txt');
+        const writeStream = fs.createWriteStream('addTextFile.txt'); // added data to file 
         req.pipe(writeStream);
 
         req.on('end', () => {

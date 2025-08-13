@@ -7,9 +7,9 @@ const http = require('http');
 const server = http.createServer((req, res) => {
     res.end('Hello World');
 });
-// GET REQ: http://localhost:3000/
+
 server.on('request', (req, res) => {
-    console.log('Request received'); // prints
+    console.log('Request received'); // prints, when we make a GET request http://localhost:3000/
 });
 server.listen(3000, () => {
     console.log('server listening on port: ', 3000)

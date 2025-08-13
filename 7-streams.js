@@ -1,5 +1,5 @@
 /**
-    In Node.js, streams are a powerful way to handle reading and writing data asynchronously,
+    In Node.js, streams are a powerful way to handle reading and writing data Asynchronously,
     cont. especially when working with large volumes of data like files, network communications,
     cont. or incoming HTTP requests/responses.
 

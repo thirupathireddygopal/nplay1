@@ -2,7 +2,7 @@
     Perfect — we’ll build a real-world streaming pipeline in Node.js that:
     Accepts a file upload from a client (HTTP Readable stream)
     Compresses it on-the-fly using zlib (Transform stream)
-    Writes it to disk (Writable stream) without loading into memory
+    Writes it to disk(Writable stream) without loading into memory
  */
 
 //📂 Streaming File Upload + Compression
