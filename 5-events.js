@@ -33,8 +33,7 @@ console.log('=======================')
   After emit
 */
 
-// Can it be asynchronous?
-// Yes, you can make it asynchronous by explicitly using setImmediate, setTimeout, 
+// Can it be asynchronous? Yes, you can make it asynchronous by explicitly using setImmediate, setTimeout,
 // cont. process.nextTick, or async/await in the listener:
 emitter.on('event', async () => {
   await new Promise(resolve => setTimeout(resolve, 1000));
@@ -44,9 +43,9 @@ emitter.on('event', async () => {
 emitter.on('event', () => {
   console.log('Sync Listener 2');
 });
-// console.log('Sync Before emit');
-// emitter.emit('event');
-// console.log('Sync After emit');
+console.log('Sync Before emit');
+emitter.emit('event');
+console.log('Sync After emit');
 /**
  * result
   Sync Before emit

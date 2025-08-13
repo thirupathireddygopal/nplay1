@@ -2,12 +2,24 @@
 // cont. are all based on EventEmitter.
 
 const fs = require('fs');
-const stream = fs.createReadStream('hello.txt');
 
-stream.on('data', (chunk) => {
-  console.log('Received chunk:', chunk.toString());
-});
+// check weather the file exist or not
+fs.access('./hello.txt', fs.constants.F_OK, (err) => {
+  if (err) {
+    // console.error(err);
+    console.log('No such file exist');
+  }
+  else {
+    console.log('file exist');
+    const stream = fs.createReadStream('hello.txt');
 
-stream.on('end', () => {
-  console.log('File reading finished.');
-});
+    stream.on('data', (chunk) => {
+      console.log('Received buffer chunk:', chunk.toString());
+    });
+
+    stream.on('end', () => {
+      console.log('File reading finished.');
+    });
+  }
+})
+

@@ -12,6 +12,10 @@
 // 1. Reading a File with Buffer in Node.js
 const fs = require('fs');
 
+/** Buffer.alloc() allocates a new buffer of a specified size, 
+    optionally filled with a specific value (defaulting to zeroes). 
+    Buffer.alloc() is preferred for creating buffers that will hold sensitive data as it guarantees initialization.
+*/
 const buffer = Buffer.alloc(1024); // 1KB buffer
 
 fs.open('example.txt', 'r', (err, fd) => {
@@ -25,7 +29,13 @@ fs.open('example.txt', 'r', (err, fd) => {
 });
 
 // 2. Writing to a File with Buffer
-const buffer2 = Buffer.from('Hello, buffered world!', 'utf8');
+/** Buffer.from() creates a new Buffer instance, 
+    cont. meaning the original data source is not directly modified.
+    >> Buffer.from() creates a buffer from existing data.
+    >> When creating a Buffer from a string, 
+    cont. an optional encoding parameter can be provided (e.g., 'utf8', 'ascii', 'hex', 'base64').
+*/
+const buffer2 = Buffer.from('Hello, buffered world!', 'utf8'); // if string then Default encoding is "utf8", 
 
 fs.open('output.txt', 'w', (err, fd) => {
   if (err) throw err;
