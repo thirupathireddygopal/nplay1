@@ -213,16 +213,16 @@ console.log(count);
 
 // .reduce()
 const arr_red = [
-  { name: 'thiru', age: 2 },
-  { name: 'gopal', age: 2 },
-  { name: 'abhi', age: 4 },
+  { name: 'thiru', age: 3 },
+  { name: 'kavya', age: 2 },
+  { name: 'ravi', age: 4 },
   { name: 'praveen', age: 2 }
 ];
 const reduce_total = arr_red.reduce((currentTotal, item) => {
   console.log('currentTotal: ' + currentTotal);
   return currentTotal + item.age;
 }, 5); // here 5 is the intial value which we are providing for the currentTotal
-console.log('reduce_total: ' + reduce_total); // 15
+console.log('reduce_total: ' + reduce_total); // 16
 
 /** 🔁 filter() vs reduce()
 | Feature         | `filter()`                            | `reduce()`                                 |
@@ -245,8 +245,6 @@ console.log('reduce_total: ' + reduce_total); // 15
 
 // .join()
 const arr_join = ['Fire', 'Air', 'Water'];
-console.log(arr_join.join()); // "Fire,Air,Water"
-console.log(arr_join.join('')); // "FireAirWater"
 console.log(arr_join.join('-')); // "Fire-Air-Water"
 
 // .concat()

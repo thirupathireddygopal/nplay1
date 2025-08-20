@@ -14,6 +14,7 @@ let result2 = call2();
 console.log(result2); // output: undefined
 
 // >> How js code gets executed?
+// Memory component / memory creation phase / variable creation enviorment
 var n = 2; // intial value >> undefined
 function square(num) { // intial value >> total function block is copied and saved in memory component
     var res = num * num;
@@ -24,9 +25,21 @@ var sq4 = square(4); // intial value >> undefined, local execution context2
 console.log(sq2);
 console.log(sq4);
 
-// >> Hoisting: Hoisting is a phenomenon in javascript by which we can access variable and functions even before we have initialized it 
-// cont. or we have put some value in it, which means we can access them without any reference Error.
-// Memory component / memory creation phase / variable creation enviorment
+// how default parameters works in js
+function sum(x = 10, y = 15) {
+    console.log(x + y);
+}
+sum(null, 5); // 0+5 = 5
+sum(undefined, 6); // 10+6 = 16
+sum(); // 10+15 = 25
+
+// >> Hoisting:
+/**
+    Hoisting is a phenomenon in javascript by which we can access variable and functions even before we have initialized it 
+    cont. or we have put some value in it, which means we can access them without any reference Error.
+    we can access variables value as "undefined" even before we have intialized with some value
+    cont. javascript allocates the memory for both variables and functions even before single of line code executed
+*/
 getName(); // getName somehow managed to the value of function which is not initalized before
 console.log(hostx); // initial value >> undefined, hostx variable can't able to get the value
 console.log(getName); // we are trying to access the value of getName function intially we know it saves total function itself in memory creation phase
@@ -113,6 +126,15 @@ else {
 // var z = undefined; // not a good practice
 
 // >> scope, scope-chain, lexical enviorment
+/**
+    Scope in javascript directly dependent on the Lexical Environment
+    Scope means where we can access any specific function or variable in our code
+    *** Wherever an execution context is created, a lexical environment is also created, 
+    so, the lexical environment is the local memory along with the lexical environment of its parent(parents and its parents).***
+    So lexical is the term which means a hierarchy or in a sequence
+    *** Scope-chain is a way of finding the value of the variable by searching the local, 
+    or its parent environments lexically.***
+*/
 function scope() {
     console.log('s1 val: ', s1); // 9, generally, here is "s1" refering to local memory component of scope method
     // if it is not found it looks out it's closest parents enviorment which we call as lexical enviorment
@@ -132,16 +154,14 @@ var s2 = 9;
 // scope of s3 variable is defined to scope() methods and it's children methods but not outside of method
 
 // >> let & const, these are hosted in the Temporal Deadzone
-// comparison of let and var in case of hoisting
-// In other languages we can't able to access variable "hostx" but in javascript it is quite different,
-// cont. as we know in javascript we can access variable "hostx" even before we initialized,
-// cont. we can access variables value as "undefined" even before we have intialized with some value
-// cont. javascript allocates the memory for both variables and functions even before single of line code executed
-
-// let & const variables are stored in different space, but not in global memory,
-// they are not attached to global object, they are stored in seperate memory space
-// we can't able to access this seperate memory space (or)
-// cont. this let & const variables declarations can't able to access before we initalize or put some value to them, this is what hoisting in let and const
+// comparison of let and var(global scope) in case of hoisting
+/**
+    let & const variables are stored in different space, not in global memory or not attached to global object, 
+    they are stored in seperate memory space called script block
+    *** we can't able to access this seperate memory space (or) 
+    cont. this let & const variables declarations can't able to access before we initalize or put some value to them, 
+    cont. this is what hoisting in let and const ***
+*/
 // console.log(l1); // ReferenceError: Cannot access "l1" before initialization, script >> l1: <value unavailable></value>
 let l1 = 10; // script >> l1:10 // now the indentifier "l1" points to 10
 console.log(l1); // here we can access since we have intialized the variable l1
@@ -166,7 +186,7 @@ let shadow1 = 1;
 // A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment)
 function outer() {
     function inner() {
-        console.log('inner func: ', a);
+        console.log('inner func: ', a); // 10
     }
     // var a = 10;
     let a = 10;
@@ -193,12 +213,12 @@ function call() {
 }
 let a2 = 99; // if we comment a2, then at, 1_functions.js:187 Uncaught ReferenceError: a2 is not defined 
 var innerClos2 = call()('hi thiru');
-innerClos2();
+innerClos2(); // innerClos2 lexical environment, b is 'hi thiru',
 // let a2 = 99; // 1_functions.js:187 Uncaught ReferenceError: Cannot access 'a2' before initialization
 var innerClos2_2 = call()('how r u');
-innerClos2_2();
-// here innerClos2 and innerClos2_2 are both closures. They share the same function body definition, but store different lexical environments. 
-// In innerClos2 lexical environment, b is 'hi thiru', while in the lexical environment for innerClos2_2, b is 'how r u'.
+innerClos2_2(); // lexical environment for innerClos2_2, b is 'how r u'.
+// here innerClos2 and innerClos2_2 are both closures. 
+// cont. They share the same function body definition, but store different lexical environments. 
 
 // function encapsulation, where count can't be accessed outside the code
 // cont. here counter will be available for all the users who is making use of browser and other person can increase the counter
@@ -291,7 +311,6 @@ function closureTimeout() {
     //         console.log(x);// here arrow functions become a closure, since it takes the reference value of x  
     //     }, x * 1000);
     // }
-    console.log('namastae pr5');
     // 2nd way:  remeber here we are using "let j=0; j<6; j++" >> let is a block scope
     // cont. remember when we use "let variable" >> it is a block scope that means for each and every loop iteration
     // cont. this "j" will be new variable alltogether, and the arrow function forms a closure withe the new variable itself
