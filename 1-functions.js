@@ -340,7 +340,12 @@ var p1 = function xParam(param1, param2) {
 // Arguments: when we pass some value to the function while invoking it, is known as arguments
 p1('hi', 'thiru');
 
-// First Class Functions(fcf)
+// First Class Functions(fcf):
+/**
+    Ability to use pass functions as arguments to another function and can return a function from that function,
+    cont. is known as first class functions in javascript as well as in many languages also
+    sometimes “we call as functions are first class citizens (or) first class functions”
+ */
 var f1 = function fcf1(param1, param2) {
     console.log(param1, param2);
 }

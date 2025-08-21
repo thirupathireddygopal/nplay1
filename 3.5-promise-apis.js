@@ -1,7 +1,8 @@
 // const promise1 = fetch(''); // here we can fetch api and return a promise
 // for this demo i am writing a normal promise
 
-/** 1) promise.all([p1, p2, p3]); will return all the values in an array (or) returns error if any promise rejected
+/** 1) promise.all([p1, p2, p3]); 
+ * will return all the values in an array (or) returns error if any promise rejected
  */
 const prAll1 = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -28,8 +29,9 @@ Promise.all([prAll1, prAll2, prAll3])
     })
     .catch((err) => { console.log(err) });
 
-/** 2) promise.allSettled([p1, p2, p3]); promise.allSettled will wait for all the promises to get settled,
-    it will return all the values in an array including rejected promise
+/** 2) promise.allSettled([p1, p2, p3]); 
+ * promise.allSettled will wait for all the promises to get settled,
+ * it will return all the values in an array including rejected promise
 */
 const prAllSettled1 = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -55,7 +57,8 @@ Promise.allSettled([prAllSettled1, prAllSettled2, prAllSettled3])
     })
     .catch((err) => { console.log(err) });
 
-/** 3) promise.race([p1, p2, p3]); it will return the first finishes (or) return the first rejected
+/** 3) promise.race([p1, p2, p3]);
+ * it will return the first finishes (or) return the first rejected
 */
 const prRace1 = new Promise((resolve, reject) => {
     setTimeout(() => {

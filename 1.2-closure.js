@@ -1,10 +1,10 @@
-// we are creating a function statement "x"
+// we are creating a function statement "x" and returning the function "y" block
 function x() {
     // let a = 9; // work out on this case
     var a = 9;
     // A closure basically means a function bind together along with its lexical enviorment or lexical scope is knows as closure
     function y() {
-        console.log(a); // 9
+        console.log("returned y value:", a); // 9
         // inside y fun, it forms a closure with the variables which were part of x fun lexical scope
         // cont. basically an inner function using the variables of outer function which we call as closure
         return a;
@@ -20,7 +20,7 @@ function x() {
 const res1 = x();
 console.log("res1: ", res1);
 
-// we can pass a fun as an arg while call
+// we can pass a "function as an argument" while calling a function 
 // x(function z() {
 //     console.log("hi there");
 // });

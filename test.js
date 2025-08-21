@@ -12,25 +12,26 @@ const emp = {
 // here we can get "age" since it is not declared outside but not name
 // const { name, age } = emp; // ❌ SyntaxError: Identifier 'name' has already been declared
 // ✅ To avoid this conflict, you can use aliasing:
-const { name: empName } = emp;
-console.log(empName); // Output: "Dheerendra"
+const { name: empName, rating = 5 } = emp;
+console.log(empName); // alias name is "empName", Output: "Dheerendra"
+ 
+// ===========================
+const greet1 = (name1) => {
+  console.log(name1)
+}
+// greet1('thiru'); //thiru
+// greet1() //undefined
 
+const greet2 = (name2 = 'gopal', age) => {
+  console.log(name2, age);
+}
+greet2('thiru', 28); // thiru 28
+greet2(); // gopal undefined
 // ==========================================
 const words = ["apple", "banana", "apricot", "apple", "blueberry", "banana", "avocado"];
 // result >> [{ fruit: 'apple', count: 2 },{ fruit: 'banana', count: 2 },{ fruit: 'apricot', count: 1 },{ fruit: 'blueberry', count: 1 },{ fruit: 'avocado', count: 1 }]
-// reduce method for converting into >> { apple: 2, banana: 2, apricot: 1, blueberry: 1, avocado: 1 }
-/**
- * Calls the specified callback function for all the elements in an array. 
- * cont. The return value of the callback function is the accumulated result, 
- * cont. and is provided as an argument in the next call to the callback function.
-@param callbackfn — A function that accepts up to four arguments. 
-cont. The reduce method calls the callbackfn function one time for each element in the array.
-@param initialValue — If initialValue is specified, it is used as the initial value to start the accumulation. 
-cont. The first call to the callbackfn function provides this value as an argument instead of an array value.
- */
 // let intial value is empty object {}
-// previousVal >> accumulator
-// currentVal >> item
+// previousVal / accumulator, currentVal / item
 // reduce() >> Best for counting, object creation, array creation etc
 const reduceResult = words.reduce((acc, word) => {
     acc[word] = (acc[word] || 0) + 1; // intial value of acc[word] is "undefined"
@@ -50,13 +51,11 @@ const finRes = Object.entries(reduceResult)
         return a.fruit.localeCompare(b.fruit)
     });
 console.log(finRes);
+
 /** ✅ Using Set with filter (not recommended for performance, but educational):
     const words = ["apple", "banana", "apricot", "apple", "blueberry", "banana", "avocado"];
     const uniqueFruits = [...new Set(words)];
-    const result = uniqueFruits.map(fruit => ({
-    fruit,
-    count: words.filter(w => w === fruit).length
-    }));
+    const result = uniqueFruits.map(fruit => ({ fruit, count: words.filter(w => w === fruit).length }));
     console.log(result);
  */
 // retuns object with unique elements

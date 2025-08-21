@@ -3,14 +3,14 @@ async function getDesc() {
     // return new Error('not found');
     return "async function returning string, and it wraps with the promise and returns back..."
 }
-// getDesc().then(result => console.log(result)).catch((err) => console.log(err.errors));
+getDesc().then(result => console.log(result)).catch((err) => console.log(err.errors));
 
 async function getData(params) {
     return new Promise((resolve, reject) => {
         resolve('returns promise since we are using promise - resolve')
     })
 }
-// getData().then((value) => console.log(value)).catch(err => console.log(err.errors));
+getData().then((value) => console.log(value)).catch(err => console.log(err.errors));
 
 const normalPr = new Promise((resolve, reject) => {
     resolve('returns normal promise');
@@ -18,13 +18,13 @@ const normalPr = new Promise((resolve, reject) => {
 function normalPromise(params) {
     normalPr.then(val => console.log(val)).catch((err) => console.log(err));
 }
-// normalPromise();
+normalPromise();
 
 async function prUsingAsyncAwait(params) {
     let value = await normalPr;
     console.log(value);
 }
-// prUsingAsyncAwait();
+prUsingAsyncAwait();
 
 const pr2 = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -100,10 +100,12 @@ async function handlePrNewWay() {
 }
 handlePrNewWay(); // newer way
 
-// older fashion of handling errors without using try-catch
+// older fashion of handling errors using promises .then(), .catch()
 // handlePrNewWay().catch(err => {console.log(err)}); // remember, async function always retuns a promise
 
-// async-await vs promise.then/.catch
-// async-await is a syntatic sugar over promise native methods >> .then and .catch
-// when we are using async-await, behind the scenes javascript is using promise.then(), promise.catch() and all that stuff only
-// cont. basically the only effect happening is, happening in the code how we write
+/** difference b/w async-await & promise.then/.catch
+    async-await is a syntatic sugar over promise native methods >> .then() and .catch()
+    when we are using async-await, behind the scenes javascript is using promise.then(), promise.catch() 
+    and all that stuff only, basically the only effect happening is, happening in the code how we write
+*/
+

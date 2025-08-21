@@ -1,3 +1,6 @@
+// Higher order function: 
+// A function which takes another function as an argument is known as Higher order function
+// cont. This is only possible because function are first class citizens
 function x() {
     console.log('hi thiru');
 }
@@ -19,7 +22,7 @@ let circlesAreas = function (arr) {
     return circlesArea;
 }
 
-// calculate Circumference of circles
+// calculate Circumference of circles, 2*pi*r
 let calCircumferenceOfCircles = function (arr) {
     let circlesCircumfernce = [];
     for (let i = 0; i < arr.length; i++) {
@@ -28,7 +31,7 @@ let calCircumferenceOfCircles = function (arr) {
     return circlesCircumfernce;
 }
 
-// calculate Diameter of circles
+// calculate Diameter of circles, 2*r
 let calDiameterOfCircles = function (arr) {
     let circlesDiameters = [];
     for (let i = 0; i < arr.length; i++) {
@@ -108,4 +111,33 @@ Array.prototype.methodLogic1 = function (cbLogic) {
 console.log(radiusArr.map(area)); // same result we get
 console.log(radiusArr.methodLogic1(area)); // same result we will get
 
-
+/**
+    hi thiru
+    undefined
+    ========= Higher Order Functions ==============
+    [
+    12.566370614359172,
+    28.274333882308138,
+    50.26548245743669,
+    78.53981633974483
+    ]
+    [
+    12.566370614359172,
+    18.84955592153876,
+    25.132741228718345,
+    31.41592653589793
+    ]
+    [ 4, 6, 8, 10 ]
+    [
+    12.566370614359172,
+    28.274333882308138,
+    50.26548245743669,
+    78.53981633974483
+    ]
+    [
+    12.566370614359172,
+    28.274333882308138,
+    50.26548245743669,
+    78.53981633974483
+    ]
+ */

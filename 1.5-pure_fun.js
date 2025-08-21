@@ -1,7 +1,13 @@
 /**
- * A pure function is a concept from functional programming. 
- * It refers to a function that always behaves predictably 
- * — given the same input, it always returns the same output without causing any side effects.
+    A pure function is a concept from functional programming. 
+    It refers to a function that always behaves predictably 
+    Pure function:
+    Output depends only on input.
+    No side effects (no logging, no DB write, no file change, etc.).
+
+    Impure function:
+    Causes side effects (logging, updating a variable outside the function, making API calls, etc.).
+    Harder to test and reason about.
  */
 // ✅ Characteristics of Pure Functions:
 // 1) Deterministic: Always returns the same output for the same input.

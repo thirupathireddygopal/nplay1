@@ -50,8 +50,7 @@ console.log('add callback fun: ', main(2, 3, add)); // here we have defined the 
 console.log('mul callback fun: ', main(2, 3, multiply)); // given cb function name multiply
 console.log(main(2, 3, doWhatever)); // here we have defined the cb function name doWhatever
 
-/** Anonymous function only once
-    here we do not defined the cb function name and we call it as anonymous function
+/** Anonymous function: we do not defined "callback function-name"
     when we want to use something only once we do not want to define the function,
     then we go for anonymous function
  */
