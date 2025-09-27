@@ -73,15 +73,15 @@ for (const [key, value] of myMap1) {
  */
 
 // for-in: majorly used for objects properties & arrays using indexes
-// 1) for object properties , ex: obj[key], res[roleId]
+// 1) for-in object properties , ex: obj[key], res[roleId]
 var objkv = { a: 1, b: 2, c: 3 };
 for (const key in objkv) {
   console.log(`key: ${key}, value: ${objkv[key]}`);
 }
-// 2) for array using indexes >> 0,1,2 ...
-const numbersForIn = [1, 3, 5, 7, 9];
-for (const index in numbersForIn) {
-  console.log(numbersForIn[index]);
+// 2) for-in array using indexes >> 0,1,2 ...
+const numArr = [1, 3, 5, 7, 9];
+for (const index in numArr) {
+  console.log(numArr[index]);
 }
 
 // forEach use case: forEach method executes the given function on every elements from an array

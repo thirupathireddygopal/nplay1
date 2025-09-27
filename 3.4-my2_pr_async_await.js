@@ -8,8 +8,7 @@ async function main() {
     });
     console.log('third');
 }
-// main();
-// result >> first, third, second
+// main(); // first, third, second
 
 async function main2() {
     console.log('first');

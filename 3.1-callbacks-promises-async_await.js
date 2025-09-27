@@ -31,7 +31,7 @@ function printAll() {
 function printCbString(str1, str2, callback) {
   setTimeout(() => {
     // console.log(str1, str2);
-    callback(null, str1 + ' ' + str2); // here callback is included with an error handling and result
+    callback(null, str1 + ' ' + str2); // null indicates no error, here callback is included with an error handling and result
   }, Math.floor(Math.random() * 100) + 1);
 }
 

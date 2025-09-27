@@ -1,3 +1,12 @@
+/**
+    start
+    end
+    while expired...
+    start2
+    end2
+    callback1
+    callback2
+ */
 console.log('start');
 function cb() {
     console.log('callback1');
@@ -23,12 +32,3 @@ function cb2() {
 setTimeout(cb2, 0);
 console.log('end2');
 
-/**
-    start
-    end
-    while expired...
-    start2
-    end2
-    callback1
-    callback2
- */
