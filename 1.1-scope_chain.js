@@ -1,7 +1,7 @@
 // >> scope, scope-chain, lexical enviorment
 /**
     Scope in javascript directly dependent on the Lexical Environment
-    Scope means where we can access any specific function or variable in our code
+    the term "Scope" indicates the capability of accessing any specific function or variable in our code
     *** Wherever an execution context is created, a lexical environment is also created, 
     so, the lexical environment is the local memory along with the lexical environment of its parent(parents and its parents).***
     So lexical is the term which means a hierarchy or in a sequence
