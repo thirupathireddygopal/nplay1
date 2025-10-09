@@ -74,6 +74,7 @@ console.log('========= Higher Order Functions ==============');
 // here we have abstracted this logic out from the code
 // 1st we will write all the methods by using Function Expression, 
 // cont. then we will call these methods as function arguments in the function 
+// square, sum
 let area = function (radius) {
     return Math.PI * radius * radius
 }

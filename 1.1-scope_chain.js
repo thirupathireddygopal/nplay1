@@ -17,7 +17,7 @@ function x() {
         console.log('y a val: ', a); // 9
         console.log('y c val: ', c); // 11
     }
-    console.log('b val: ', b); // undefined
+    console.log('b val: ', b); // undefined, hoisted
 }
 var a = 9;
 x();

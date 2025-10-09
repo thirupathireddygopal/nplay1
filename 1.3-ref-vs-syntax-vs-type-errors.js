@@ -1,6 +1,6 @@
 // Reference Error:
-console.log(b); // undefined, 'b' is in global scope
 // console.log(a); // ReferenceError: Cannot access 'a' before initialization, since it is in temporal dead zone
+console.log(b); // undefined, 'b' is in global scope
 let a = 10;
 var b = 20;
 

@@ -1,7 +1,8 @@
 console.clear();
 // console.log(7); // 7
 // javascript built in objects >> Set, Map, Array, Math
-// 1) Set: The Set object lets you store unique values of any type, whether primitive values or object references.
+// 1) Set: add, has, delete 
+// The Set object lets you store unique values of any type, whether primitive values or object references.
 const mySet1 = new Set();
 mySet1.add(1);
 mySet1.add(1);
@@ -23,7 +24,8 @@ for (const item of mySet1) {
   console.log(item) // logs >> 5, some text, [ 1, 2, 3 ], { a: 1, b: 2 }
 }
 
-// 2) Map: The Map object holds key-value pairs and remembers the original insertion order of the keys.
+// 2) Map: set, get, has, size, keys(), values() 
+// The Map object holds key-value pairs and remembers the original insertion order of the keys.
 let myMap1 = new Map();
 myMap1.set('a', 1);
 myMap1.set('b', 'thiru');
@@ -36,8 +38,8 @@ myMap1.set('a', 9);
 console.log("myMap1:-----");
 console.log(myMap1); // Map(4) { 'a' => 9, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
 
-// for-of use case: >> loop over iterable / values
-// generally for-of is used for arrays of iterable
+// 1) FOR-OF : myMap1.keys(), myMap1.values(), const [key, value] of myMap1
+// loop over arrays
 // for-of does not work with objects because they are not iterable
 const arrforof1 = ['a', 'b', 'c'];
 for (const element of arrforof1) {
@@ -46,52 +48,33 @@ for (const element of arrforof1) {
 for (const key of myMap1.keys()) {
   console.log(`key: ${key}`);
 }
-/** prints
-    key: a
-    key: b
-    key: c
-    key: d
- */
 for (const value of myMap1.values()) {
   console.log(`val: ${value}`);
 }
-/** prints
-    val: thiru
-    val: gopal
-    val: 1,2,3
- */
-
-// iterate over objects key value pairs >> [key, value]
 for (const [key, value] of myMap1) {
   console.log(`key: ${key}, val: ${value}`);
+  // iterate over objects key value pairs >> [key, value]
 }
-/** prints
-    key: a, val: 9
-    key: b, val: thiru
-    key: c, val: gopal
-    key: d, val: 1,2,3
- */
 
-// for-in: majorly used for objects properties & arrays using indexes
-// 1) for-in object properties , ex: obj[key], res[roleId]
+// 2) FOR-IN: obj[key], arr[index]
+// used in objects and arrays
 var objkv = { a: 1, b: 2, c: 3 };
 for (const key in objkv) {
   console.log(`key: ${key}, value: ${objkv[key]}`);
 }
-// 2) for-in array using indexes >> 0,1,2 ...
 const numArr = [1, 3, 5, 7, 9];
 for (const index in numArr) {
   console.log(numArr[index]);
 }
 
-// forEach use case: forEach method executes the given function on every elements from an array
+// 3) FOR-EACH: myMap1.forEach((value, key)
+// forEach method executes the given function on every elements from an array
 myMap1.forEach((value, key) => {
   console.log(`key: ${key}, val: ${value}`);
 });
 
 
 // 3) Array =================
-
 // array static methods
 // Creates a new Array instance from an array-like object or iterable object.
 // >> array from a string
@@ -219,7 +202,7 @@ const arr_red = [
   { name: 'praveen', age: 2 }
 ];
 const reduce_total = arr_red.reduce((currentTotal, item) => {
-  console.log('currentTotal: ' + currentTotal);
+  // console.log('currentTotal: ' + currentTotal);
   return currentTotal + item.age;
 }, 5); // here 5 is the intial value which we are providing for the currentTotal
 console.log('reduce_total: ' + reduce_total); // 16

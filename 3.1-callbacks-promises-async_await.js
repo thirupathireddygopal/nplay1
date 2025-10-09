@@ -62,6 +62,9 @@ function printAllCbs() {
     2nd problem is Inversion of control in callbacks: 
     Inversion of control is another problem we see while we are using callbacks
     Inversion of control is when we loose the control of code while we are using callbacks
+    >> We are calling the createOrder api and passing the function as an argument to createOrder api 
+    cont. and leaving our control to createOrder to call the function which we have sent as an argument later after the createOrder api completes, 
+    cont. and we are blindly trusting createOrder api like it will call our function later, isn't risky yes? it's very very very risky
 */
 
 // so, promises come into play to resolve Inversion of Control

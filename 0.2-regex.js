@@ -8,17 +8,9 @@
 // []{n,} >> occur n or more times
 // []{x,y} >> occur atleast x times but less than y times
 
-// 
-
 // .exec() >> retrn arr or null
-// .test() >> return true or false
-// str1.match(regex) >> retrun arr or null
-// str1.replace(regex) 
-// str1.search(regex) >> retrun index where it find
 let regex1 = /ab/;
 console.log(regex1.exec('absorb the Attention'));
-let regex2 = /thi/i;
-console.log(regex2.test('hi This is Thiru'));
 let str1 = 'hi this is thiru';
 let regex3 = /^thi/g;
 console.log('starts: ' + regex3.exec('this is thiru'));
@@ -30,3 +22,10 @@ console.log('dot: ' + regex5.exec('gopal'));
 let regex6 = /go*al/; 
 console.log('dot: ' + regex6.exec('golmal'));
 
+// .test() >> return true or false
+let regex2 = /thi/i;
+console.log(regex2.test('hi This is Thiru'));
+
+// str1.match(regex) >> retrun arr or null
+// str1.replace(regex) 
+// str1.search(regex) >> retrun index where it find

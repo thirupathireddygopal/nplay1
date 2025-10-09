@@ -34,7 +34,7 @@
 // Remember if any variable is shadowing something it should not cross the boundary of its scope, 
 // if it crosses we call it as illegal shadowing, in a particular scope "a" let variable cannot be redeclared right
 
-// var --> let(shadowing possible), let --> var(shadowing not-possible)-->throws error
+// var-->let(shadowing possible), let-->var(shadowing not-possible/illegal shadowing)-->throws error
 let a = 3; // script scope
 {
     // var a = 2; // illegal shadowing
