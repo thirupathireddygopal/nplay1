@@ -15,7 +15,7 @@ const child = {
   mul() {
     return this.arg1 * this.arg2;
   },
-  firstDigit(num) { // 3456 >> 4-1 = 3
+  firstDigit(num) { // 3456 >> 4-1 = 3 >> 3456/1000 >> 3.456
     let length = ('' + num).length;
     // console.log('length: ' + length);
     // console.log('first divnum: ' + num / Math.pow(10, length - 1));
@@ -110,8 +110,13 @@ const child = {
   isPrime(n) { // more optimized and concise solution 
     if (n <= 1) return false; // 0 and 1 are not prime
     if (n === 2) return true; // 2 is prime
-    if (n % 2 === 0) return false; // eliminate even numbers
-    for (let i = 3; i <= Math.floor(Math.sqrt(n)); i += 2) {
+    if (n % 2 === 0) return false; // eliminate even numbers, This line filters out all even numbers (except 2, which we handled as prime earlier).
+    // So after this point we got to know that "n is odd". 
+    // Any even divisor(like 2, 4, 6, 8, …) can never divide an odd number evenly.
+    // so that's why we are iterating by 2 since we are intersted in odd numbers
+    // here "i started with 3 odd number and iterating with odd numbers" to check weather any number is divisble or not
+    const limit = Math.floor(Math.sqrt(n));
+    for (let i = 3; i <= limit; i += 2) {
       if (n % i === 0) return false;
     }
     return true;
@@ -143,6 +148,17 @@ const child = {
     }
     return `Not a string palindrome`;
   },
+  /**
+  3 x 2 = 6
+  3 x 3 = 9
+  3 x 4 = 12
+  3 x 5 = 15
+  3 x 6 = 18
+  3 x 7 = 21
+  3 x 8 = 24
+  3 x 9 = 27
+  3 x 10 = 30 
+   */
   printTable(num) {
     let str = '';
     for (let i = 1; i <= 10; i++) {
@@ -150,6 +166,28 @@ const child = {
     }
     return str;
   },
+  /**
+  3 x 2 = 6
+  3 x 3 = 9
+  3 x 4 = 12
+  3 x 5 = 15
+  3 x 6 = 18
+  3 x 7 = 21
+  3 x 8 = 24
+  3 x 9 = 27
+  3 x 10 = 30
+
+  4 x 1 = 4
+  4 x 2 = 8
+  4 x 3 = 12
+  4 x 4 = 16
+  4 x 5 = 20
+  4 x 6 = 24
+  4 x 7 = 28
+  4 x 8 = 32
+  4 x 9 = 36
+  4 x 10 = 40
+   */
   printMulTables(num1, num2) {
     let str = '';
     for (let i = num1; i <= num2; i++) {
@@ -160,6 +198,13 @@ const child = {
     }
     return str;
   },
+  /**
+  *
+  **
+  ***
+  ****
+  *****
+   */
   starPattern1(num) {
     let str = '';
     for (let i = 1; i <= num; i++) {
@@ -170,6 +215,13 @@ const child = {
     }
     return str;
   },
+  /**
+  ----- *
+  ---- * *
+  --- * * *
+  -- * * * *
+  - * * * * *
+   */
   starPattern2(num) {
     let str = '';
     for (let i = 1; i <= num; i++) {
@@ -183,6 +235,17 @@ const child = {
     }
     return str;
   },
+  /**
+    ----- *
+    ---- * *
+    --- * * *
+    -- * * * *
+    - * * * * *
+    -- * * * *
+    --- * * *
+    ---- * *
+    ----- *
+   */
   polygonPattern(num) {
     let str = '';
     for (let i = 1; i <= num; i++) {
@@ -205,6 +268,13 @@ const child = {
     }
     return str;
   },
+  /**
+  AAAAA
+  A***A
+  A***A
+  A***A
+  AAAAA
+   */
   boxPattern(num) {
     let str = '';
     for (let i = 1; i <= num; i++) {
@@ -220,6 +290,13 @@ const child = {
     }
     return str;
   },
+  /**
+  ----- 1
+  ---- 2 3
+  --- 4 5 6
+  -- 7 8 9 10
+  - 11 12 13 14 15
+   */
   numPattern(num) {
     let str = '';
     let temp = 1;
@@ -236,6 +313,13 @@ const child = {
     }
     return str;
   },
+  /**
+  -----1
+  ----121
+  ---12321
+  --1234321
+  -123454321
+  */
   numPattern2(num) {
     let str = '';
     for (let i = 1; i <= num; i++) {
@@ -252,6 +336,13 @@ const child = {
     }
     return str;
   },
+  /**
+  55555
+  54445
+  54445
+  54445
+  55555
+   */
   numPattern3(num) {
     let str = '';
     for (let i = 1; i <= num; i++) {
@@ -267,6 +358,13 @@ const child = {
     }
     return str;
   },
+  /**
+  -----a
+  ----aba
+  ---abcba
+  --abcdcba
+  -abcdedcba
+   */
   charPattern(num) {
     let str = '';
     let characters = 'abcdefghijklmnopqrstuvwxyz';
@@ -470,6 +568,7 @@ const child = {
     }
     return largeststr;
   },
+  // 'creative', 'reactive'
   stringAnagram(str1, str2) {
     let str1Sorted = ('' + str1).split('').sort().join('');
     let str2Sorted = ('' + str2).split('').sort().join('');
