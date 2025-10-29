@@ -87,10 +87,10 @@ let diameter = function (radius) {
 
 // here "cal_HOF_logic" function is a Higher Order Function
 // this is kind of a polyfill for map function
-let cal_HOF_logic = function (cbLogic, arr) { // here we are passing "cbLogic callback function" as an argument 
+let cal_HOF_logic = function (cbLogicName, arr) { // here we are passing "cbLogicName callback function" as an argument 
     let result = [];
     for (let i = 0; i < arr.length; i++) {
-        result.push(cbLogic(arr[i]));
+        result.push(cbLogicName(arr[i]));
     }
     return result;
 }

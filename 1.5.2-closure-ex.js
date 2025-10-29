@@ -28,38 +28,38 @@ console.log("res1: ", res1); // 91
 // we already know we can pass a function as an argument while calling a function, similarly we can return function from a function
 function x2() {
     let a2 = 9;
-    function y2() {
+    function y2(p1) {
         console.log("a2: ", a2); // 100, basically it points to the reference of the varaible but not the value
-        return a2;
+        return a2 + p1;
     }
     a2 = 100;
     return y2; // here when we return y2 right, not just that function code returned but the closure was returned, which means lexical scope of y2
     // in another way it returns function along with lexical scope
     // return function y2(){} // shortcut
 }
-let z2 = x2();
-// console.log("z2: ", z2); // z2:  [Function: y2]
+let res2 = x2();
+// console.log("res2: ", res2); // res2:  [Function: y2]
 // once x2() function is called, gets executed and return somevalue, now at this moment callstack removes x2(),
 // x2 execution context is no longer available in the callstack, x2 is gone, what will happen to this a2 let variable?
-// when we call the z2 function after writing 1000's of line, i want to call this z2() which holds returned y2() fun and it's lexical scope
+// when we call the res2 function after writing 1000's of line, i want to call this res2() which holds returned y2() fun and it's lexical scope
 // so here comes closure into picture, functions are so beautiful that when they return from another function, they still remember or maintains there lexical scope
-const res2 = z2();
-console.log("res2: ", res2); // 100
+const finalRes2 = res2(9);
+console.log("finalRes2: ", finalRes2); // 109
 
-function z3() {
-    let z3 = 1000;
-    function x3() {
-        var a3 = 9;
-        // Returning a function that closes over a3 and z3
-        return function y3() {
-            console.log("a3, z3: ", a3, z3);
-            return a3 + z3;
+function a(p) {
+    let a = 1000;
+    function b(p) {
+        var b = 9;
+        // Returning a function that closes over b and a
+        return function c() {
+            console.log("a, b, p: ", a, b, p);
+            return a + b + p;
         }
     }
-    return x3(); // here we are calling and Return the closure from x3
+    return b(p); // here we are calling and Return the closure "c" from "b" 
 };
-// let r3 = z3(); // r3 is assigned the closure function which retruns y3 function
-// let res3 =  r3(); // Invokes y3, logs: a3, z3: 9 1000, return the result of y3
+// let r3 = a(9); // r3 is assigned the closure function which retruns c function
+// let res3 =  r3(); // Invokes c, logs(a, b, p:  1000 9 9), returns result of c
 // console.log("res3: ", res3);
-const res3 = z3()();
+const res3 = a(9)();
 console.log("res3: ", res3); // short way of calling the function, and calling once again the retuned function

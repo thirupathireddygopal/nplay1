@@ -5,9 +5,10 @@ function test1() {
     var x = 10;
   }
   console.log(x); // ✅ 10 — accessible outside the block
+  // x is accessible outside the if-block because var has function scope.
 }
 test1();
-// ➡️ x is accessible outside the if block because var has function scope.
+// console.log(x); // ReferenceError: x is not defined
 
 /** 2. Block Scope: Variables declared with let or const are block-scoped.
     In JavaScript, block scope means that variables declared inside a block ({ ... }) are only accessible within that block.
@@ -65,9 +66,9 @@ function test2() {
   }
   console.log(y); // ❌ ReferenceError: y is not defined
   console.log(z); // ❌ ReferenceError: z is not defined
+  // y and z are not accessible outside the block, because they are block-scoped.
 }
 test2();
-// ➡️ y and z are not accessible outside the block, because they are block-scoped.
 
 // ✅ In one line:
 // Function scope applies to var, visible throughout a function.

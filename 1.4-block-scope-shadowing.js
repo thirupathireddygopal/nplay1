@@ -27,7 +27,7 @@
 //     console.log(d); // 30
 // };
 // console.log(a); //10, points to same memory ← since this "a" shadows the value which is defined outside the block and modified the value, why because these are pointing to a same memory location
-// console.log(b); // 100, ← since “b” is block scope since it defined by let and here "b" is shadowing in the block scope and it will be the value of block itself, outside the block b is stored in script memory location, so there are script and block memory for let and const variables when defined with same name variables
+// console.log(b); // 100, since “b” is block scope since it defined by let and here "b" is shadowing in the block scope and it will be the value of block itself, outside the block b is stored in script memory location, so there are script and block memory for let and const variables when defined with same name variables
 
 // >> 2nd example:
 // illegal shadowing: we cannot shadow let using var that’s we call as illegal shadowing

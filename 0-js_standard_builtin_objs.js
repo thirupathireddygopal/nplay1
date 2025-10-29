@@ -1,6 +1,7 @@
 console.clear();
 // console.log(7); // 7
 // javascript built in objects >> Set, Map, Array, Math
+
 // 1) Set: add, has, delete 
 // The Set object lets you store unique values of any type, whether primitive values or object references.
 const mySet1 = new Set();
@@ -16,7 +17,6 @@ console.log(mySet1.has(2)); // false
 console.log(mySet1.has(Math.sqrt(25))); // true
 console.log(mySet1.size); // 5
 console.log('checking string: ' + mySet1.has('Some Text'.toLowerCase())) // true
-
 mySet1.delete(1); // Set(4) { 5, 'some text', [ 1, 2, 3 ], { a: 1, b: 2 } }
 console.log(mySet1);
 // for loop to get set values
@@ -38,8 +38,7 @@ myMap1.set('a', 9);
 console.log("myMap1:-----");
 console.log(myMap1); // Map(4) { 'a' => 9, 'b' => 'thiru', 'c' => 'gopal', 'd' => [ 1, 2, 3 ] }
 
-// 1) FOR-OF : myMap1.keys(), myMap1.values(), const [key, value] of myMap1
-// loop over arrays
+// 1) FOR-OF:loop over arrays: myMap1.keys(), myMap1.values(), const [key, value] of myMap1
 // for-of does not work with objects because they are not iterable
 const arrforof1 = ['a', 'b', 'c'];
 for (const element of arrforof1) {
@@ -57,7 +56,7 @@ for (const [key, value] of myMap1) {
 }
 
 // 2) FOR-IN: obj[key], arr[index]
-// used in objects and arrays
+// for-in works with objects and arrays
 var objkv = { a: 1, b: 2, c: 3 };
 for (const key in objkv) {
   console.log(`key: ${key}, value: ${objkv[key]}`);
@@ -344,7 +343,7 @@ console.log(Math.ceil(5.3), Math.ceil(5.6), Math.ceil(-5.3), Math.ceil(-5.6)) //
 console.log(Math.floor(5.3), Math.floor(5.6), Math.floor(-5.3), Math.floor(-5.6)) // 5, 5, -6, -6
 
 // round
-console.log(Math.round(5.5), Math.round(-5.3), Math.round(-5.5), Math.round(-5.6)) // 6, -5, -5, -6
+console.log(Math.round(5.3), Math.round(5.5), Math.round(-5.3), Math.round(-5.5), Math.round(-5.6)) // 5, 6, -5, -5, -6
 
 // largest and smallest number
 console.log(Math.max(1, 2, 3)); // 3
