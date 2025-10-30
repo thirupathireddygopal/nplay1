@@ -203,7 +203,8 @@ const arr_red = [
 const reduce_total = arr_red.reduce((currentTotal, item) => {
   // console.log('currentTotal: ' + currentTotal);
   return currentTotal + item.age;
-}, 5); // here 5 is the intial value which we are providing for the currentTotal
+}, 5); // initial val = num / {} / [] / anything
+// 5 is the intial value which we are providing for the currentTotal
 console.log('reduce_total: ' + reduce_total); // 16
 
 /** 🔁 filter() vs reduce()
@@ -224,6 +225,19 @@ console.log('reduce_total: ' + reduce_total); // 16
 | Group items into categories               | `reduce` |
 | Combine all values to one (e.g., flatten) | `reduce` |
  */
+
+const object = {
+  a: "some string",
+  b: 42,
+};
+
+for (const [key, value] of Object.entries(object)) {
+  console.log(`${key}: ${value}`);
+}
+
+// Expected output:
+// "a: some string"
+// "b: 42"
 
 // .join()
 const arr_join = ['Fire', 'Air', 'Water'];

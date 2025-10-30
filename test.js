@@ -14,16 +14,16 @@ const emp = {
 // ✅ To avoid this conflict, you can use aliasing:
 const { name: empName, rating = 5 } = emp;
 console.log(empName); // alias name is "empName", Output: "Dheerendra"
- 
+
 // ===========================
 const greet1 = (name1) => {
-  console.log(name1)
+    console.log(name1)
 }
 // greet1('thiru'); //thiru
 // greet1() //undefined
 
 const greet2 = (name2 = 'gopal', age) => {
-  console.log(name2, age);
+    console.log(name2, age);
 }
 greet2('thiru', 28); // thiru 28
 greet2(); // gopal undefined
@@ -40,9 +40,9 @@ const reduceResult = words.reduce((acc, word) => {
 console.log(reduceResult); // { apple: 2, banana: 2, apricot: 1, blueberry: 1, avocado: 1 }
 
 /** Object.entries() turns that into an array of [key, value] pairs. here key will be string type
-    const result = Object.entries(reduceResult); // ArrayLike<any>): [string, any][], 
+    const result = Object.entries(reduceResult);
     console.log(result); // [['apple', 2], ['banana', 2], ['apricot', 1],['blueberry', 1],['avocado', 1]]
- */
+*/
 const finRes = Object.entries(reduceResult)
     .map(([key, value], index) => {
         return { fruit: key, count: value, index: index }
@@ -142,24 +142,4 @@ function extractValues2(obj) {
     return result;
 }
 console.log(extractValues2(nestedObj)); // ["thiru", "TS", "nizampur"]
-//=====================================
-function varTest() {
-    var x = 1;
-    {
-        var x = 2;  // same variable!
-        console.log('var in: ' + x);  // 2
-    }
-    console.log('var out: ' + x);  // 2
-}
-varTest();
-
-function letTest() {
-    let x = 1;
-    {
-        let x = 2;  // different variable
-        console.log('let in: ' + x);  // 2, if inner x commented then it is 1
-    }
-    console.log('let out:' + x);  // 1
-}
-letTest();
 

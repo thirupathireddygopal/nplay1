@@ -1,9 +1,8 @@
 // const promise1 = fetch(''); // here we can fetch api and return a promise
 // for this demo i am writing a normal promise
 
-/** 1) promise.all([p1, p2, p3]); 
- * will return all the values in an array (or) returns error if any promise rejected
- */
+// 1) Promise.all([p1, p2, p3]); 
+// Promise.all() will return all the values in an array (or) returns error if any promise rejected
 const prAll1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve({ data: 'prAll 1 returned a promise after 3 secs' });
@@ -22,17 +21,19 @@ const prAll3 = new Promise((resolve, reject) => {
     }, 5000);
 });
 // console.log(Promise.all([prAll1, prAll2, prAll3])); // it returns a promise
-// if we don't catch the error, it will return "Uncaught Error", NEVER EVER MISS, Write the catch block
+
 Promise.all([prAll1, prAll2, prAll3])
     .then(result => {
         console.log(result);
     })
-    .catch((err) => { console.log(err) });
+    .catch((err) => {
+        // if we don't catch the error, it will return "Uncaught Error", NEVER EVER MISS, Write the catch block
+        console.log(err)
+    });
 
-/** 2) promise.allSettled([p1, p2, p3]); 
- * promise.allSettled will wait for all the promises to get settled,
- * it will return all the values in an array including rejected promise
-*/
+// 2) Promise.allSettled([p1, p2, p3]); 
+// Promise.allSettled() will wait for all the promises to get settled,
+// cont. it will return all the values in an array including rejected promise
 const prAllSettled1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         reject('prAllSettled 1 REJECTED after 3 secs');
@@ -57,9 +58,8 @@ Promise.allSettled([prAllSettled1, prAllSettled2, prAllSettled3])
     })
     .catch((err) => { console.log(err) });
 
-/** 3) promise.race([p1, p2, p3]);
- * it will return the first finishes (or) return the first rejected
-*/
+// 3) Promise.race([p1, p2, p3]);
+// Promise.race() will return the first finishes (or) return the first rejected
 const prRace1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         reject('prRace 1 REJECTED after 3 secs'); // it will executes and returns first
@@ -84,7 +84,8 @@ Promise.race([prRace1, prRace2, prRace3])
     })
     .catch((err) => { console.log(err) });
 
-// 4) promise.any([p1, p2, p3]); // it will wait for the first promise to return
+// 4) promise.any([p1, p2, p3]); 
+// promise.any() will wait for the first promise to return
 const prAny1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve({ data: 'prAny 1 returned a promise after 3 secs' }); // it will execute

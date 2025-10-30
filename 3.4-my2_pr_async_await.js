@@ -4,7 +4,7 @@ async function main() {
         setTimeout(() => {
             console.log('second')
         }, 3000);
-        resolve()
+        resolve(); // resolve is outside the setTimeout
     });
     console.log('third');
 }
@@ -15,7 +15,7 @@ async function main2() {
     await new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log('second');
-            resolve();
+            resolve(); // resolve is outside the setTimeout
         }, 3000);
     });
     console.log('third');

@@ -1,6 +1,6 @@
-/** Normal function with calType(methodName)
-    without callbacks we will use normal functions and send the type of method that needs to execute
-    cont. here we can call this cal_normal as a libaray which it provides some results
+/** Normal function with calType(methodName): without callbacks we will use normal functions 
+ * and send the type of method that needs to execute here we can call this cal_normal as a libaray
+ * which it provides some results
 */
 let cal_normal = function (num1, num2, calType) {
   // here call type is a string argument

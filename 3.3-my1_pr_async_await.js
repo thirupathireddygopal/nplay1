@@ -1,10 +1,11 @@
-// async function always returns a promise
+// example 1: async fun returns returns promise
 async function getDesc() {
     // return new Error('not found');
     return "async function returning string, and it wraps with the promise and returns back..."
 }
 getDesc().then(result => console.log(result)).catch((err) => console.log(err.errors));
 
+// example 2: async function always returns a promise
 async function getData(params) {
     return new Promise((resolve, reject) => {
         resolve('returns promise since we are using promise - resolve')
@@ -12,41 +13,29 @@ async function getData(params) {
 }
 getData().then((value) => console.log(value)).catch(err => console.log(err.errors));
 
-const normalPr = new Promise((resolve, reject) => {
-    resolve('returns normal promise');
-});
-function normalPromise(params) {
-    normalPr.then(val => console.log(val)).catch((err) => console.log(err));
-}
-normalPromise();
-
-async function prUsingAsyncAwait(params) {
-    let value = await normalPr;
-    console.log(value);
-}
-prUsingAsyncAwait();
-
-const pr2 = new Promise((resolve, reject) => {
+// example 3: JS Engine will not wait for promise to be resolved.
+const pr = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('resolved promise value after 8 secs...')
     }, 8000);
 });
-// behaves synchronously
-function getNormalPr2() {
-    pr2.then(val => console.log(val)).catch(err => console.log(err.errors));// ** JS Engine will not wait for promise to be resolved. **
+// 1st way: promise way of calling
+function getNormalPr2() { // behaves synchronously
+    pr.then(val => console.log(val)).catch(err => console.log(err.errors));// ** JS Engine will not wait for promise to be resolved. **
     console.log('handle promise - normal way'); // it prints this line first
 }
 // getNormalPr2();
 // console.log('Hey I AM IN THE CALLSTACK SINCE getNormalPr2 is SUSPENDED, 😍');
 
+// 2nd way: async-await way of calling
 async function getAsyncAwaitPr2(params) {
     console.log('hi thiru..');
-    let value = await pr2; // supsended for the time being
+    let value = await pr; // supsended for the time being
     console.log(value); // prints value after 8 secs
     console.log('handle promise - async-await way'); // prints later
 }
 // getAsyncAwaitPr2();
-// console.log('Hey I AM IN THE CALLSTACK SINCE getAsyncAwaitPr2 is SUSPENDED, 😍');
+console.log('Hey I AM IN THE CALLSTACK SINCE getAsyncAwaitPr2 is SUSPENDED, 😍');
 
 // ============================
 // Mocking if we have 2 awaits inside the async function and how they function

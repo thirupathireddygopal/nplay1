@@ -24,3 +24,26 @@ x();
 var b = 9; // if it is not there: we will get Uncaught ReferenceError: b is not defined
 // console.log(c); // ReferenceError: c is not defined, because we are trying to access variable outside the function
 // scope of c variable is defined to x() methods and it's children methods but not outside of method
+
+// interview quest ===
+function varTest() {
+    var x = 1;
+    // defining the block scope
+    {
+        var x = 2;  // same variable!
+        console.log('var in: ' + x);  // 2
+    }
+    console.log('var out: ' + x);  // 2
+}
+// console.log(x); // ReferenceError: x is not defined
+varTest();
+
+function letTest() {
+    let x = 1;
+    {
+        let x = 2;  // different variable
+        console.log('let in: ' + x);  // 2, if inner x commented then it is 1
+    }
+    console.log('let out:' + x);  // 1
+}
+letTest();
