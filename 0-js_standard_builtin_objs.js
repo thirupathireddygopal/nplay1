@@ -176,8 +176,9 @@ console.log(sum);
  */
 
 // use case: { a: 3, b: 1, c: 2 }, 
+// using forEach, we can build a new obj from the given array of numbers or letters or objects..,etc
 const lettersForeach = ['a', 'b', 'a', 'c', 'a', 'c'];
-let count = {}; // using forEach, we can build a new obj from the given array of numbers or letters or objects..,etc
+let count = {}; // initial empty obj
 lettersForeach.forEach(item => {
   // if we have property inside the object then we are increatmenting value by 1
   if (count[item]) {

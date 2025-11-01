@@ -2,7 +2,7 @@
 // you can use destructuring directly like this:
 const name = "Thiru";
 const emp = {
-    name: 'Dheerendra',
+    name: 'ravi',
     age: 30
 }
 /**
