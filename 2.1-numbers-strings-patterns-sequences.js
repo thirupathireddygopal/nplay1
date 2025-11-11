@@ -41,6 +41,16 @@ const child = {
     a = temp;
     return [a, b];
   },
+  swapNumber2(a, b) {
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    return [a, b];
+  },
+  swapNumber3(a, b) {
+    [a, b] = [b, a];
+    return [a, b];
+  },
   isEvenOdd(num) {
     if (num / 2 == 0) {
       return true;
