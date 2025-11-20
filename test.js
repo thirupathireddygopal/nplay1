@@ -1,21 +1,3 @@
-// To extract the name property from the emp object using object destructuring without using dot (.) notation
-// you can use destructuring directly like this:
-const name = "Thiru";
-const emp = {
-    name: 'ravi',
-    age: 30
-}
-/**
- * ⚠️ Note: In your code, there's also a const name = "Thiru"; already declared. 
- * If you try to destructure name again, you'll get a conflict:
- */
-// here we can get "age" since it is not declared outside but not name
-// const { name, age } = emp; // ❌ SyntaxError: Identifier 'name' has already been declared
-// ✅ To avoid this conflict, you can use aliasing:
-const { name: empName, rating = 5 } = emp;
-console.log(empName); // alias name is "empName", Output: "Dheerendra"
-
-// ===========================
 const greet1 = (name1) => {
     console.log(name1)
 }

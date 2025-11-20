@@ -42,7 +42,7 @@ function letTest() {
     let x = 1;
     {
         let x = 2;  // different variable
-        console.log('let in: ' + x);  // 2, if inner x commented then it is 1
+        console.log('let in: ' + x);  // 2, if inner "x" var commented then it is 1
     }
     console.log('let out:' + x);  // 1
 }

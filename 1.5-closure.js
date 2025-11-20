@@ -182,30 +182,31 @@ var p1 = function xParam(param1, param2) {
 p1('hi', 'thiru');
 
 // Anonymous Function: A function without a name is known as anonymous function
+
 // First Class Functions(FCF): As we already know functions are very beautiful and heart of javascript,
 // Ability to pass functions as arguments to another function and return a function from that function is known as FCF
 // cont. sometimes “we call functions are first class citizens (or) first class functions”
 
 // difference between parameters and arguments passing?
-var f1 = function fcf1(param1, param2) {
+var fcf1 = function print(param1, param2) {
     console.log(param1, param2);
 }
 // 1st way passing anonymous function
-f1(function () { console.log('passed anonymous fun pass as an argument'); }, 'got it');
+fcf1(function () { console.log('passed anonymous fun pass as an argument'); }, 'got it');
 
 // 2nd way of passing anonymous function
 function xName() {
     console.log('named fun passed as an argument');
 }
-f1(xName, 'got it'); // here we have passed named function as an argument
+fcf1(xName, 'got it'); // here we have passed named function as an argument
 
 // fcf example2: return a function from the function
-let f2 = function fcf2(param1) {
+let fcf2 = function msg(param1) {
     return function (xParam) { // forms a closure
         return `hey ${param1}, got ${xParam}`;
     }
 }
-let f2res = f2('thiru');
+let f2res = fcf2('thiru');
 console.log(f2res); // retruns an anonymous function
 // Even though param1 is not used, it's still in scope for the retruned function >> this is what closures enable.
 console.log(f2res('some value here'));

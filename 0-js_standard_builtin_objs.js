@@ -55,6 +55,18 @@ for (const [key, value] of myMap1) {
   // iterate over objects key value pairs >> [key, value]
 }
 
+const object = {
+  a: "some string",
+  b: 42,
+};
+
+for (const [key, value] of Object.entries(object)) {
+  console.log(`${key}: ${value}`);
+}
+// Expected output:
+// "a: some string"
+// "b: 42"
+
 // 2) FOR-IN: obj[key], arr[index]
 // for-in works with objects and arrays
 var objkv = { a: 1, b: 2, c: 3 };
@@ -158,7 +170,8 @@ const m3 = arr_letters.map(item => {
 });
 console.log(m3); //[ 97, 98, 99 ]
 
-// .forEach(): forEach method executes the given function on every elements from an array
+// use case1: update some variable(sum) outside the function
+// .forEach(): forEach method executes the given function on every elements from an array 
 const numbersForEach = [1, 3, 5, 7, 9];
 let sum = 0;
 numbersForEach.forEach((item, index, arr) => {
@@ -166,7 +179,7 @@ numbersForEach.forEach((item, index, arr) => {
   sum += item;
   console.log(`item: ${item} , index: ${index}`);
 });
-console.log(sum);
+console.log(sum); // 25
 /** prints
     item: 1 , index: 0
     item: 3 , index: 1
@@ -174,8 +187,7 @@ console.log(sum);
     item: 7 , index: 3
     item: 9 , index: 4
  */
-
-// use case: { a: 3, b: 1, c: 2 }, 
+// use case2: updating empty obj with { a: 3, b: 1, c: 2 }
 // using forEach, we can build a new obj from the given array of numbers or letters or objects..,etc
 const lettersForeach = ['a', 'b', 'a', 'c', 'a', 'c'];
 let count = {}; // initial empty obj
@@ -192,7 +204,7 @@ lettersForeach.forEach(item => {
     // console.log('count[item]: ' + count[item]);
   }
 });
-console.log(count);
+console.log(count); // { a: 3, b: 1, c: 2 }
 
 // .reduce()
 const arr_red = [
@@ -227,19 +239,6 @@ console.log('reduce_total: ' + reduce_total); // 16
 | Combine all values to one (e.g., flatten) | `reduce` |
  */
 
-const object = {
-  a: "some string",
-  b: 42,
-};
-
-for (const [key, value] of Object.entries(object)) {
-  console.log(`${key}: ${value}`);
-}
-
-// Expected output:
-// "a: some string"
-// "b: 42"
-
 // .join()
 const arr_join = ['Fire', 'Air', 'Water'];
 console.log(arr_join.join('-')); // "Fire-Air-Water"
@@ -255,7 +254,6 @@ console.log(array_3); // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
 const pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('cat')); // true
 console.log(pets.includes('at')); // false
-
 
 const animals = ['lion', 'cheetah', 'giraffe', 'elephant'];
 animals.pop();
@@ -291,6 +289,7 @@ console.log('b1Arr: ' + b1Arr); //b1Arr: 1,3,5,2,4,
 let a2Arr = [1, 3, 5, 3, 2, 4, 3, 5];
 let b2Arr = [];
 let temp;
+console.log(temp); // undefined
 // a2Arr.sort();
 for (let i = 0; i < a2Arr.length; i++) {
   if (a2Arr[i] !== temp) {
@@ -298,6 +297,7 @@ for (let i = 0; i < a2Arr.length; i++) {
     temp = a2Arr[i]
   }
 }
+console.log(temp); // 5
 console.log('b2Arr: ' + b2Arr); // b2Arr: 1,2,3,4,5
 
 //3) using for-of (iterables) and obj

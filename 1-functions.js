@@ -97,13 +97,12 @@ greet2("Thiru"); // Output: Hello, Thiru
 var y; // global scope
 // the typeof operator in javascript is used to determine the data type of a variable or value.
 // it returns a string indicating the type of the operand.
-console.log(typeof y); // here value will be "undefined"
+console.log(typeof y); // "undefined"
 if (y === undefined) {
-    console.log('y is created but undefined');
+    console.log('y is created but undefined'); // yes, enters into this block
 }
 else {
     console.log('y is not defined or not created');
 }
-
 // never ever write a = undefined
 // var z = undefined; // not a good practice

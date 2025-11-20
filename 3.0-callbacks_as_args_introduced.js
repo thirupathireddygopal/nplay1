@@ -28,7 +28,7 @@ let call = function (callback) {
 }
 call(abstractFun);
 
-// 2nd Example:
+// 2nd Example: FCF(first class functions)
 let add = function (a, b) {
   return a + b;
 }
