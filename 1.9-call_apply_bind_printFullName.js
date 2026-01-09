@@ -51,5 +51,7 @@ function printDetails(country, state) {
 }
 printDetails.call(obj3, "India", "TS"); // thiru, 30, Nizampur, India, TS
 printDetails.apply(obj3, ["India", "TS"]); // thiru, 30, Nizampur, India, TS
-let boundPrintDetails = printDetails.bind(obj3, "India", "TS");
-boundPrintDetails(); // thiru, 30, Nizampur, India, TS
+// let boundPrintDetails = printDetails.bind(obj3, "India", "TS");
+// boundPrintDetails();
+let bind = printDetails.bind(obj3, "India");
+bind("TS"); // thiru, 30, Nizampur, India, TS
